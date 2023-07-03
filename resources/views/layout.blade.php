@@ -52,10 +52,10 @@
   <header id="header" class="header fixed-top" data-scrollto-offset="0">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="/home" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
+      <a href="/home" class="logo d-flex align-items-center scrollto me-auto me-lg-0" style="margin-left: 1rem">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-        <h1>HeroBiz<span>.</span></h1>
+        <img src="assets/img/icon.jpeg" alt="" style="height: 85px;">
+        <h1 style="margin-left: 0.5rem; padding-top: 0.5rem">TMT<span>.</span></h1>
       </a>
 
       <nav id="navbar" class="navbar">
