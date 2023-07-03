@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Home Page |  TMT
+    Blog Details Page |  TMT
 @endsection
 
 @section('content')
