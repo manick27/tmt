@@ -22,3 +22,5 @@ Route::view('/home', 'home');
 Route::view('/blog', 'blog/blog');
 
 Route::view('/blog-details', 'blog/blog-details');
+
+Route::view('/admin', '/admin/home');
