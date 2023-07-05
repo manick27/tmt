@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/icon.png" rel="icon">
-  <link href="assets/img/icon.jpeg" rel="icon">
+  {{-- <link href="assets/img/icon.png" rel="icon"> --}}
+  <link href="assets/img/icon1.jpeg" rel="icon">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +54,7 @@
 
       <a href="/home" class="logo d-flex align-items-center scrollto me-auto me-lg-0" style="margin-left: 1rem">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/icon.jpeg" alt="" style="height: 85px;">
+        <img src="assets/img/icon1.jpeg" alt="" style="height: 85px;">
         <h1 style="margin-left: 0.5rem; padding-top: 0.5rem">TMT<span>.</span></h1>
       </a>
 
