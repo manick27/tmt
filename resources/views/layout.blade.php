@@ -71,7 +71,7 @@
           </li> --}}
 
           <li><a class="nav-link scrollto" href="/home#hero-fullscreen">{{ __('Accueil') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#about">{{ __('About') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#about">{{ __('A propos') }}</a></li>
           <li><a class="nav-link scrollto" href="/home#services">{{ __('Services') }}</a></li>
           <li><a class="nav-link scrollto" href="/home#portfolio">{{ __('Portefeuille') }}</a></li>
           <li><a class="nav-link scrollto" href="/home#team">{{ __('Equipe') }}</a></li>
