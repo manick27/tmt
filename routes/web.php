@@ -24,3 +24,5 @@ Route::view('/blog', 'blog/blog');
 Route::view('/blog-details', 'blog/blog-details');
 
 Route::view('/admin', '/admin/home');
+
+Route::get('locale/{lang}', [App\Http\Controllers\LocalizationController::class, 'setLang'])->name('setlang');

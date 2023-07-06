@@ -70,12 +70,33 @@
             </ul>
           </li> --}}
 
-          <li><a class="nav-link scrollto" href="/home#hero-fullscreen">Home</a></li>
-          <li><a class="nav-link scrollto" href="/home#about">About</a></li>
-          <li><a class="nav-link scrollto" href="/home#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="/home#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="/home#team">Team</a></li>
-          <li><a href="/blog">Blog</a></li>
+          <li><a class="nav-link scrollto" href="/home#hero-fullscreen">{{ __('Accueil') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#about">{{ __('About') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#services">{{ __('Services') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#portfolio">{{ __('Portefeuille') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#team">{{ __('Equipe') }}</a></li>
+          <li><a href="/blog">{{ __('Blog') }}</a></li>
+          <li><a class="nav-link scrollto" href="/home#contact">{{ __('Contact') }}</a></li>
+
+      {{-- <select name="language" onchange="window.location.href=this.value">
+        <option value="{{ route('setlang', ['lang' => 'fr']) }}" {{ App::getLocale() == 'fr' ? 'selected' : '' }}>Français</option>
+        <option value="{{ route('setlang', ['lang' => 'en']) }}" {{ App::getLocale() == 'en' ? 'selected' : '' }}>English</option>
+    </select> --}}
+
+        <li>
+            <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
+                <img src="./assets/img/fr.jpg" alt="" width="30">
+                {{-- {{ __('Français') }} --}}
+            </a>
+        </li>
+        <li>
+            <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
+                <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                {{-- {{ __('Anglais') }} --}}
+            </a>
+        </li>
+
+
           {{-- <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
@@ -117,7 +138,6 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> --}}
-          <li><a class="nav-link scrollto" href="/home#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
