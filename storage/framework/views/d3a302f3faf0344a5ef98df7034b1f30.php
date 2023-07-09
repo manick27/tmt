@@ -63,16 +63,23 @@
 
           
 
+<<<<<<< HEAD
           <li><a class="nav-link scrollto" href="/home#hero-fullscreen"><?php echo e(__('Accueil')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#about"><?php echo e(__('A propos')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#services"><?php echo e(__('Services')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#portfolio"><?php echo e(__('Portefeuille')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#team"><?php echo e(__('Equipe')); ?></a></li>
+=======
+          <li><a class="nav-link scrollto" href="/#hero-fullscreen"><?php echo e(__('Accueil')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/#about"><?php echo e(__('A propos')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/#services"><?php echo e(__('Services')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/#portfolio"><?php echo e(__('Portefeuille')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/#team"><?php echo e(__('Equipe')); ?></a></li>
+>>>>>>> 0a0197ccb2cb830391daccc83c6edd84774f9c1b
           <li><a href="/blog"><?php echo e(__('Blog')); ?></a></li>
-          <li><a class="nav-link scrollto" href="/home#contact"><?php echo e(__('Contact')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/#contact"><?php echo e(__('Contact')); ?></a></li>
 
-      
-
+          <?php if(!Auth::user()): ?>
         <li>
             <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'fr'])); ?>">
                 <img src="./assets/img/fr.jpg" alt="" width="30">
@@ -85,15 +92,43 @@
                 
             </a>
         </li>
+        <?php else: ?>
+          <li class="dropdown"><a href="#"><span><?php echo e(Auth::user()->first_name); ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="home"><?php echo e(__('Tableau de bord')); ?></a></li>
+              <li><a href="#"><?php echo e(Auth::user()->email); ?></a></li>
+              <li>
+                  <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'fr'])); ?>">
+                      <img src="./assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
+                      <?php echo e(__('Français')); ?>
 
+                  </a>
+              </li>
+              <li>
+                  <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'en'])); ?>">
+                      <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                      <?php echo e(__('Anglais')); ?>
 
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <?php endif; ?>
           
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
 
-      <a class="btn-getstarted scrollto" href="/admin">Log In</a>
+
+      <?php if(Auth::user()): ?>
+      <form method="POST" action="<?php echo e(route('logout')); ?>">
+        <?php echo csrf_field(); ?>
+        <button class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem"><?php echo e(__('Se déconnecter')); ?></button>
+      </form>
+      <?php else: ?>
+        <a class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem" href="/login"><?php echo e(__('Se connecter')); ?></a>
+      <?php endif; ?>
 
     </div>
   </header>
