@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LocalizationController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +20,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::view('/home', 'home');
+// Route::view('/home', 'home');
 
 Route::view('/blog', 'blog/blog');
 
 Route::view('/blog-details', 'blog/blog-details');
 
-Route::view('/admin', '/admin/home');
+Route::view('/azerty', 'admin/verify_email');
 
-Route::get('locale/{lang}', [App\Http\Controllers\LocalizationController::class, 'setLang'])->name('setlang');
+Route::view('/home', '/admin/home')->middleware(['auth', 'verified']);
+
+Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('setlang');

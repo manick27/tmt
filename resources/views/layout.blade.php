@@ -70,19 +70,15 @@
             </ul>
           </li> --}}
 
-          <li><a class="nav-link scrollto" href="/home#hero-fullscreen">{{ __('Accueil') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#about">{{ __('A propos') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#services">{{ __('Services') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#portfolio">{{ __('Portefeuille') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#team">{{ __('Equipe') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#hero-fullscreen">{{ __('Accueil') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#about">{{ __('A propos') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#services">{{ __('Services') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#portfolio">{{ __('Portefeuille') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#team">{{ __('Equipe') }}</a></li>
           <li><a href="/blog">{{ __('Blog') }}</a></li>
-          <li><a class="nav-link scrollto" href="/home#contact">{{ __('Contact') }}</a></li>
+          <li><a class="nav-link scrollto" href="/#contact">{{ __('Contact') }}</a></li>
 
-      {{-- <select name="language" onchange="window.location.href=this.value">
-        <option value="{{ route('setlang', ['lang' => 'fr']) }}" {{ App::getLocale() == 'fr' ? 'selected' : '' }}>Français</option>
-        <option value="{{ route('setlang', ['lang' => 'en']) }}" {{ App::getLocale() == 'en' ? 'selected' : '' }}>English</option>
-    </select> --}}
-
+          @if (!Auth::user())
         <li>
             <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
                 <img src="./assets/img/fr.jpg" alt="" width="30">
@@ -95,8 +91,26 @@
                 {{-- {{ __('Anglais') }} --}}
             </a>
         </li>
-
-
+        @else
+          <li class="dropdown"><a href="#"><span>{{ Auth::user()->first_name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+              <li><a href="home">{{ __('Tableau de bord') }}</a></li>
+              <li><a href="#">{{ Auth::user()->email }}</a></li>
+              <li>
+                  <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
+                      <img src="./assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
+                      {{ __('Français') }}
+                  </a>
+              </li>
+              <li>
+                  <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
+                      <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                      {{ __('Anglais') }}
+                  </a>
+              </li>
+            </ul>
+          </li>
+          @endif
           {{-- <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li>
@@ -142,7 +156,15 @@
         <i class="bi bi-list mobile-nav-toggle d-none"></i>
       </nav><!-- .navbar -->
 
-      <a class="btn-getstarted scrollto" href="/admin">Log In</a>
+
+      @if (Auth::user())
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem">{{ __('Se déconnecter') }}</button>
+      </form>
+      @else
+        <a class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem" href="/login">{{ __('Se connecter') }}</a>
+      @endif
 
     </div>
   </header>

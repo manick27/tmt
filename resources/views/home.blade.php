@@ -1125,7 +1125,7 @@
       <div class="container">
 
         <div class="section-header">
-          <h2>Contact Us</h2>
+          <h2>{{ __('Contactez-nous') }}</h2>
           <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
         </div>
 
