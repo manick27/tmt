@@ -64,7 +64,7 @@
           
 
           <li><a class="nav-link scrollto" href="/home#hero-fullscreen"><?php echo e(__('Accueil')); ?></a></li>
-          <li><a class="nav-link scrollto" href="/home#about"><?php echo e(__('About')); ?></a></li>
+          <li><a class="nav-link scrollto" href="/home#about"><?php echo e(__('A propos')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#services"><?php echo e(__('Services')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#portfolio"><?php echo e(__('Portefeuille')); ?></a></li>
           <li><a class="nav-link scrollto" href="/home#team"><?php echo e(__('Equipe')); ?></a></li>
