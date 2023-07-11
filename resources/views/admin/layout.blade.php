@@ -1,3 +1,8 @@
+{{-- <?php
+    // if (!Auth::user()->is_admin) {
+        // return redirect()->action('${App\Http\Controllers\HomeController@index}', ['parameterKey' => 'value']);
+    // }
+?> --}}
 <!--
 =========================================================
 * Argon Dashboard 2 - v2.0.4

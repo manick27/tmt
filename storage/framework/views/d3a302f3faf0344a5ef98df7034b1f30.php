@@ -87,7 +87,9 @@
         <?php else: ?>
           <li class="dropdown"><a href="#"><span><?php echo e(Auth::user()->first_name); ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="home"><?php echo e(__('Tableau de bord')); ?></a></li>
+                <?php if(Auth::user()->is_admin): ?>
+                    <li><a href="home"><?php echo e(__('Tableau de bord')); ?></a></li>
+                <?php endif; ?>
               <li><a href="#"><?php echo e(Auth::user()->email); ?></a></li>
               <li>
                   <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'fr'])); ?>">

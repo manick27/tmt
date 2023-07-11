@@ -28,6 +28,6 @@ Route::view('/blog-details', 'blog/blog-details');
 
 Route::view('/azerty', 'admin/verify_email');
 
-Route::view('/home', '/admin/home')->middleware(['auth', 'verified']);
+Route::view('/home', '/admin/home')->middleware(['auth', 'verified', 'is_admin']);
 
 Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('setlang');

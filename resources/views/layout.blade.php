@@ -94,7 +94,9 @@
         @else
           <li class="dropdown"><a href="#"><span>{{ Auth::user()->first_name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
-              <li><a href="home">{{ __('Tableau de bord') }}</a></li>
+                @if (Auth::user()->is_admin)
+                    <li><a href="home">{{ __('Tableau de bord') }}</a></li>
+                @endif
               <li><a href="#">{{ Auth::user()->email }}</a></li>
               <li>
                   <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
