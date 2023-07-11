@@ -83,7 +83,7 @@
               </ul>
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="home#contact" class="btn btn-sm mb-0 me-1 btn-primary">{{ __('Contactez-nous') }}</a>
+                  <a href="/#contact" class="btn btn-sm mb-0 me-1 btn-primary">{{ __('Contactez-nous') }}</a>
                 </li>
               </ul>
             </div>

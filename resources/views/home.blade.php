@@ -574,7 +574,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
+    {{-- <section id="testimonials" class="testimonials">
       <div class="container" data-aos="fade-up">
 
         <div class="testimonials-slider swiper">
@@ -665,10 +665,10 @@
         </div>
 
       </div>
-    </section><!-- End Testimonials Section -->
+    </section><!-- End Testimonials Section --> --}}
 
     <!-- ======= Pricing Section ======= -->
-    <section id="pricing" class="pricing">
+    {{-- <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
@@ -752,10 +752,10 @@
         </div>
 
       </div>
-    </section><!-- End Pricing Section -->
+    </section><!-- End Pricing Section --> --}}
 
     <!-- ======= F.A.Q Section ======= -->
-    <section id="faq" class="faq">
+    {{-- <section id="faq" class="faq">
       <div class="container-fluid" data-aos="fade-up">
 
         <div class="row gy-4">
@@ -850,10 +850,10 @@
         </div>
 
       </div>
-    </section><!-- End F.A.Q Section -->
+    </section><!-- End F.A.Q Section --> --}}
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio" data-aos="fade-up">
+    {{-- <section id="portfolio" class="portfolio" data-aos="fade-up">
 
       <div class="container">
 
@@ -991,7 +991,7 @@
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
+    </section><!-- End Portfolio Section --> --}}
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">

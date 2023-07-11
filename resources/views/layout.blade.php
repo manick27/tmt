@@ -73,7 +73,7 @@
           <li><a class="nav-link scrollto" href="/#hero-fullscreen">{{ __('Accueil') }}</a></li>
           <li><a class="nav-link scrollto" href="/#about">{{ __('A propos') }}</a></li>
           <li><a class="nav-link scrollto" href="/#services">{{ __('Services') }}</a></li>
-          <li><a class="nav-link scrollto" href="/#portfolio">{{ __('Portefeuille') }}</a></li>
+          {{-- <li><a class="nav-link scrollto" href="/#portfolio">{{ __('Portefeuille') }}</a></li> --}}
           <li><a class="nav-link scrollto" href="/#team">{{ __('Equipe') }}</a></li>
           <li><a href="/blog">{{ __('Blog') }}</a></li>
           <li><a class="nav-link scrollto" href="/#contact">{{ __('Contact') }}</a></li>
