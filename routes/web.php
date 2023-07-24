@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
@@ -77,7 +78,13 @@ Route::get('/myProfile', [UserController::class, 'myProfile'])->middleware(['aut
 
 Route::get('/edit/myProfile', [UserController::class, 'editMyProfile'])->middleware(['auth', 'verified', 'is_admin']);
 
-Route::post('update/my/profile', [UserController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.my.profile');
+Route::post('/update/my/profile', [UserController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.my.profile');
+
+// Les messages
+
+Route::post('/send/message', [MessageController::class, 'store'])->name('send.message');
+
+Route::get('/messages', [MessageController::class, 'index'])->middleware(['auth', 'verified', 'is_admin']);
 
 //Changement de langue
 
