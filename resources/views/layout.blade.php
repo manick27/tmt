@@ -45,6 +45,45 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
 </head>
+<style>
+    .header .my-btn{
+        border: none;
+        font-size: 0.85rem;
+        color: var(--color-primary);
+        background: var(--color-white);
+        padding: 8px 23px;
+        border-radius: 4px;
+        border: 2px solid var(--color-primary);
+        transition: 0.3s;
+        font-family: var(--font-secondary);
+    }
+    .header .my-btn,
+    .header .my-btn:focus{
+        color: var(--color-primary);
+        background: var(--color-white);
+        padding: 8px 23px;
+        border-radius: 4px;
+        transition: 0.3s;
+        font-family: var(--font-secondary);
+    }
+    .header .my-btn,
+    .header .my-btn:hover{
+        color: rgba(var(--color-primary-rgb), 0.85);
+        background: var(--color-white);
+    }
+    @media (max-width: 1279px) {
+        .header .my-btn,
+        .header .my-btn:focus {
+        margin-right: 50px;
+    }
+    @media (max-width: 1279px) {
+        .header .my-btn,
+        .header .my-btn:focus {
+        margin-right: 50px;
+        }
+    }
+}
+</style>
 
 <body>
 
@@ -81,13 +120,13 @@
           @if (!Auth::user())
         <li>
             <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
-                <img src="./assets/img/fr.jpg" alt="" width="30">
+                <img src="/assets/img/fr.jpg" alt="" width="30">
                 {{-- {{ __('Français') }} --}}
             </a>
         </li>
         <li>
             <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
-                <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                <img src="/assets/img/en.webp" alt="" width="30" height="20">
                 {{-- {{ __('Anglais') }} --}}
             </a>
         </li>
@@ -100,13 +139,13 @@
               <li><a href="#">{{ Auth::user()->email }}</a></li>
               <li>
                   <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
-                      <img src="./assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
+                      <img src="/assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
                       {{ __('Français') }}
                   </a>
               </li>
               <li>
                   <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
-                      <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                      <img src="/assets/img/en.webp" alt="" width="30" height="20">
                       {{ __('Anglais') }}
                   </a>
               </li>
@@ -162,10 +201,10 @@
       @if (Auth::user())
       <form method="POST" action="{{ route('logout') }}">
         @csrf
-        <button class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem">{{ __('Se déconnecter') }}</button>
+        <button class="my-btn scrollto">{{ __('Se déconnecter') }}</button>
       </form>
       @else
-        <a class="btn-getstarted scrollto" style="border: none; font-size: 0.85rem" href="/login">{{ __('Se connecter') }}</a>
+        <a class="my-btn scrollto" href="/login">{{ __('Se connecter') }}</a>
       @endif
 
     </div>
@@ -220,7 +259,8 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
+            <form action="{{ route('newsletters') }}" method="POST">
+            @csrf
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
 

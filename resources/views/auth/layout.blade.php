@@ -82,13 +82,13 @@
 
                 <li>
                     <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
-                        <img src="./assets/img/fr.jpg" alt="" width="30">
+                        <img src="/assets/img/fr.jpg" alt="" width="30">
                         {{-- {{ __('Français') }} --}}
                     </a>
                 </li>
                 <li>
                     <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
-                        <img src="./assets/img/en.webp" alt="" width="30" height="20">
+                        <img src="/assets/img/en.webp" alt="" width="30" height="20">
                         {{-- {{ __('Anglais') }} --}}
                     </a>
                 </li>
