@@ -1,7 +1,7 @@
 @extends('admin/layout')
 
 @section('title')
-    {{ __('Accueil') }} Admin Page |  TMT
+    @yield('title') Admin Page |  TMT
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
           <h6 class="font-weight-bolder text-white mb-0">{{ __('Tableau de bord') }}</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+          <div class="ms-md-auto pe-md-3 d-flex align-items-center" style="visibility: hidden;">
             <div class="input-group">
               <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
               <input type="text" class="form-control" placeholder="Type here...">
@@ -27,9 +27,9 @@
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="javascript:;" class="nav-link text-white font-weight-bold px-0">
+              <a href="/myProfile" class="nav-link text-white font-weight-bold px-0">
                 <i class="fa fa-user me-sm-1"></i>
-                <span class="d-sm-inline d-none">Sign In</span>
+                <span class="d-sm-inline d-none">Profil</span>
               </a>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -55,7 +55,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="./assets/admin/assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                        <img src="/assets/admin/assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -73,7 +73,7 @@
                   <a class="dropdown-item border-radius-md" href="javascript:;">
                     <div class="d-flex py-1">
                       <div class="my-auto">
-                        <img src="./assets/admin/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                        <img src="/assets/admin/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
                         <h6 class="text-sm font-weight-normal mb-1">
@@ -132,13 +132,17 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Newsletters</p>
                     <h5 class="font-weight-bolder">
-                      $53,000
+                        {{ $newsletters->count() }}
                     </h5>
+                    <div style="display: none">
+                        @foreach ($newsletters as $newsletter)
+                        {{ $dateN = $newsletter->created_at }}
+                        @endforeach
+                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+55%</span>
-                      since yesterday
+                      <span class="text-success text-sm font-weight-bolder">@if ($newsletters->count()){{ $dateN }}@endif</span>
                     </p>
                   </div>
                 </div>
@@ -157,13 +161,18 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Services</p>
                     <h5 class="font-weight-bolder">
-                      2,300
+                        {{ $services->count() }}
                     </h5>
+
+                    <div style="display: none">
+                        @foreach ($services as $service)
+                        {{ $dateS = $service->created_at }}
+                        @endforeach
+                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+3%</span>
-                      since last week
+                      <span class="text-success text-sm font-weight-bolder">@if ($services->count()){{ $dateS }}@endif</span>
                     </p>
                   </div>
                 </div>
@@ -182,13 +191,17 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Blogs</p>
                     <h5 class="font-weight-bolder">
-                      +3,462
+                      {{ $blogs->count() }}
                     </h5>
+                    <div style="display: none">
+                        @foreach ($blogs as $blog)
+                        {{ $dateB = $blog->created_at }}
+                        @endforeach
+                    </div>
                     <p class="mb-0">
-                      <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                      since last quarter
+                      <span class="text-danger text-sm font-weight-bolder">@if ($blogs->count()){{ $dateB }}@endif</span>
                     </p>
                   </div>
                 </div>
@@ -207,12 +220,17 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Comptes</p>
                     <h5 class="font-weight-bolder">
-                      $103,430
+                        {{ $users->count() }}
                     </h5>
+                    <div style="display: none">
+                        @foreach ($users as $user)
+                        {{ $dateU = $user->created_at }}
+                        @endforeach
+                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                      <span class="text-success text-sm font-weight-bolder">@if ($users->count()){{ $dateU }}@endif</span>
                     </p>
                   </div>
                 </div>
@@ -227,18 +245,19 @@
         </div>
       </div>
       <div class="row mt-4">
-        <div class="col-lg-7 mb-lg-0 mb-4">
+        <div class="@if ($services->count())col-lg-7 @else col-lg-12 @endif mb-lg-0 mb-4">
           <div class="card z-index-2 h-100">
             <div class="card-header pb-0 pt-3 bg-transparent">
-              <h6 class="text-capitalize">Sales overview</h6>
+              <h6 class="text-capitalize">Votre tableau de bord</h6>
               <p class="text-sm mb-0">
                 <i class="fa fa-arrow-up text-success"></i>
-                <span class="font-weight-bold">4% more</span> in 2021
+                Gérer votre site avec <span class="font-weight-bold"> facilité</span>
               </p>
             </div>
             <div class="card-body p-3">
-              <div class="chart">
-                <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+              <div class="chart" style="text-align: center; margin-top: 120px; margin-bottom: 120px">
+                {{-- <canvas id="chart-line" class="chart-canvas" height="300"></canvas> --}}
+                <h1>Bienvenu, vous pouvez commencer à administrer le site!</h1>
               </div>
             </div>
           </div>
@@ -247,36 +266,19 @@
           <div class="card card-carousel overflow-hidden h-100 p-0">
             <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
               <div class="carousel-inner border-radius-lg h-100">
-                <div class="carousel-item h-100 active" style="background-image: url('./assets/admin/assets/img/carousel-1.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-camera-compact text-dark opacity-10"></i>
+                @foreach ($services as $service)
+
+                <div class="carousel-item h-100 active" style="background-image: url('./images/{{ $service->image }}'); background-size: cover;">
+                    <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
+                      <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                        <i class="ni ni-camera-compact text-dark opacity-10"></i>
+                      </div>
+                      <h5 class="text-white mb-1">{{ $service->title }}</h5>
+                      <p>{{ $service->description }}</p>
                     </div>
-                    <h5 class="text-white mb-1">Get started with Argon</h5>
-                    <p>There’s nothing I really wanted to do in life that I wasn’t able to get good at.</p>
                   </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('./assets/admin/assets/img/carousel-2.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-bulb-61 text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Faster way to create web pages</h5>
-                    <p>That’s my skill. I’m not really specifically talented at anything except for the ability to learn.</p>
-                  </div>
-                </div>
-                <div class="carousel-item h-100" style="background-image: url('./assets/admin/assets/img/carousel-3.jpg');
-      background-size: cover;">
-                  <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
-                    <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
-                      <i class="ni ni-trophy text-dark opacity-10"></i>
-                    </div>
-                    <h5 class="text-white mb-1">Share with us your design tips!</h5>
-                    <p>Don’t be afraid to be wrong because you can’t learn anything from a compliment.</p>
-                  </div>
-                </div>
+
+                @endforeach
               </div>
               <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -290,7 +292,7 @@
           </div>
         </div>
       </div>
-      <div class="row mt-4">
+      {{-- <div class="row mt-4">
         <div class="col-lg-7 mb-lg-0 mb-4">
           <div class="card ">
             <div class="card-header pb-0 p-3">
@@ -305,7 +307,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="./assets/admin/assets/img/icons/flags/US.png" alt="Country flag">
+                          <img src="/assets/admin/assets/img/icons/flags/US.png" alt="Country flag">
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -336,7 +338,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="./assets/admin/assets/img/icons/flags/DE.png" alt="Country flag">
+                          <img src="/assets/admin/assets/img/icons/flags/DE.png" alt="Country flag">
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -367,7 +369,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="./assets/admin/assets/img/icons/flags/GB.png" alt="Country flag">
+                          <img src="/assets/admin/assets/img/icons/flags/GB.png" alt="Country flag">
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -398,7 +400,7 @@
                     <td class="w-30">
                       <div class="d-flex px-2 py-1 align-items-center">
                         <div>
-                          <img src="./assets/admin/assets/img/icons/flags/BR.png" alt="Country flag">
+                          <img src="/assets/admin/assets/img/icons/flags/BR.png" alt="Country flag">
                         </div>
                         <div class="ms-4">
                           <p class="text-xs font-weight-bold mb-0">Country:</p>
@@ -497,7 +499,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -507,23 +509,23 @@
                   document.write(new Date().getFullYear())
                 </script>,
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative Tim</a>
+                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">TMT</a>
                 for a better web.
               </div>
             </div>
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                  <a href="/" class="nav-link text-muted" target="_blank">Accueil</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                  <a href="/#about" class="nav-link text-muted" target="_blank">A propos</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                  <a href="/blogs" class="nav-link text-muted" target="_blank">Blogs</a>
                 </li>
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                  <a href="/services" class="nav-link pe-0 text-muted" target="_blank">Services</a>
                 </li>
               </ul>
             </div>
