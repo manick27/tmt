@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ServiceController extends Controller
 {
@@ -31,10 +32,17 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|min:5|max:100',
+            "description" => 'required|string|min:10|max:1000',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
+
 
         $service = new Service();
 
@@ -61,7 +69,12 @@ class ServiceController extends Controller
 
         $services = Service::all();
 
-        return view('admin.service.list-services', compact('services'));
+
+        $message = "Service ajoute avec succes";
+
+        return redirect()->back()->with('message', $message);
+
+        //return view('admin.service.list-services', compact('services'));
     }
 
     /**

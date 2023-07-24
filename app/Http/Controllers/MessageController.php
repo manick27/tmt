@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailService;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Mail;
 
 class MessageController extends Controller
 {
@@ -56,6 +58,13 @@ class MessageController extends Controller
         }
 
         $message->create();
+
+        $details = [
+            'title' => $request['subject'],
+            'body' => $request['message']
+        ];
+         
+        Mail::to('aymartchimwa@gmail.com')->send(new MailService($details));
 
         return view('home');
     }
