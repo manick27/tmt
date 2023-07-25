@@ -71,11 +71,14 @@ class BlogController extends Controller
 
         $blog->user_id = Auth::user()->id;
 
+        // dd($blog);
         $blog->save();
 
         $blogs = Blog::all();
 
-        return view('admin.blog.list-blogs', compact('blogs'));
+        $services = Service::all();
+
+        return view('admin.blog.list-blogs', compact('blogs', 'services'));
     }
 
     /**
