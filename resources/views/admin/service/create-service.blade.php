@@ -188,6 +188,13 @@
               </div>
             </div> --}}
             <div class="card-body">
+            @if(session('message'))
+                <div class="alert alert-success"><b>Well done ! </b> {{ session('message') }}.</div>
+            @endif
+            
+            @if(session('error'))
+                <div class="alert alert-danger"><b>Danger ! </b> {{ session('error') }}.</div>
+            @endif
                 <form enctype="multipart/form-data" action="{{ route('add.service') }}" method="POST">
                     @csrf
 

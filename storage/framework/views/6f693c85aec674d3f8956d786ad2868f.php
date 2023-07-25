@@ -4,10 +4,18 @@
 
 <?php $__env->startSection('content'); ?>
 
+
+<?php if(session('message')): ?>
+    <div class="alert alert-success"><b>Well done ! </b> <?php echo e(session('message')); ?>.</div>
+<?php endif; ?>
+
+<?php if(session('error')): ?>
+    <div class="alert alert-danger"><b>Danger ! </b> <?php echo e(session('error')); ?>.</div>
+<?php endif; ?>
 <section id="hero-fullscreen" class="hero-fullscreen d-flex align-items-center">
     <div class="container d-flex flex-column align-items-center position-relative" data-aos="zoom-out">
-      <h2>Welcome to <span>HeroBiz</span></h2>
-      <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
+      <h2>Welcome to <span>TMT</span></h2>
+      <p>Technical Multi Service Travel is a ...</p>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         
@@ -26,32 +34,32 @@
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="" class="stretched-link">Fiabilité</a></h4>
+              <p>Une entreprise fiable est celle qui est capable de respecter ses engagements envers ses clients, ses partenaires commerciaux et ses employés.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="" class="stretched-link">Flexibilité</a></h4>
+              <p>Elle est capable de changer de direction si nécessaire et de répondre aux demandes des clients tout en maintenant une qualité élevée.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <h4><a href="" class="stretched-link">Innovation</a></h4>
+              <p> Elle investit dans la recherche et le développement pour améliorer ses produits ou services existants et pour en créer de nouveaux.</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <h4><a href="" class="stretched-link">Responsabilité sociale</a></h4>
+              <p>Une entreprise responsable socialement est celle qui prend en compte les intérêts de la société dans ses actions et ses décisions</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -66,7 +74,7 @@
 
         <div class="section-header">
           <h2>About Us</h2>
-          <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+          <p>Une agence d'immigration est une entreprise spécialisée dans l'assistance aux personnes qui cherchent à immigrer dans un pays étranger.</p>
         </div>
 
         <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
@@ -198,8 +206,8 @@
         <div class="row g-5">
 
           <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
-            <h3>Alias sunt quas <em>Cupiditate</em> oluptas hic minima</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <h3>Assistance dans la recherche <em>d'emploi</em> et de <em>logement</em> </h3>
+            <p>L'assistance dans la recherche d'emploi et de logement est l'un des services que les agences d'immigration peuvent offrir à leurs clients. Les immigrants qui arrivent dans un nouveau pays peuvent avoir besoin d'aide pour trouver un logement adapté à leurs besoins et à leur budget. Les agences d'immigration peuvent offrir des conseils sur les quartiers où chercher un logement, les types de logements disponibles et les prix.</p>
             <a class="cta-btn align-self-start" href="#">Call To Action</a>
           </div>
 
@@ -224,15 +232,14 @@
           </div>
           <div class="col-lg-6">
             <div class="content d-flex flex-column justify-content-center h-100">
-              <h3>Voluptatem dignissimos provident quasi corporis</h3>
+              <h3>Assistance dans la préparation des documents de visa</h3>
               <p class="fst-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                magna aliqua.
+              Les visas sont des documents gouvernementaux qui permettent aux étrangers d'entrer dans un pays spécifique pour travailler, étudier ou visiter. La demande de visa peut être complexe et varier en fonction du type de visa demandé et du pays d'origine du demandeur.
               </p>
               <ul>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bi bi-check-circle"></i>Les formulaires de demande</li>
+                <li><i class="bi bi-check-circle"></i>Les lettres d'appui</li>
+                <li><i class="bi bi-check-circle"></i>Les certificats médicaux et les relevés bancaires</li>
               </ul>
               <a href="#" class="read-more align-self-start"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
             </div>
@@ -471,7 +478,7 @@
                   <i class="bi bi-activity"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Nesciunt Mete</h3>
+                  <h3>Assistance VISA</h3>
                 </a>
                 <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
               </div>
@@ -488,7 +495,7 @@
                   <i class="bi bi-broadcast"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Eosle Commodi</h3>
+                  <h3>Réservation et Ventes de Billet D'avion</h3>
                 </a>
                 <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
               </div>
@@ -505,7 +512,7 @@
                   <i class="bi bi-easel"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Ledo Markt</h3>
+                  <h3>Inscription aux Bourses Etrangers</h3>
                 </a>
                 <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
               </div>
@@ -522,7 +529,7 @@
                   <i class="bi bi-bounding-box-circles"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Asperiores Commodit</h3>
+                  <h3>Agriculture</h3>
                 </a>
                 <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
                 <a href="#" class="stretched-link"></a>
@@ -540,7 +547,7 @@
                   <i class="bi bi-calendar4-week"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Velit Doloremque</h3>
+                  <h3>Import - Export</h3>
                 </a>
                 <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
                 <a href="#" class="stretched-link"></a>
@@ -558,7 +565,7 @@
                   <i class="bi bi-chat-square-text"></i>
                 </div>
                 <a href="#" class="stretched-link">
-                  <h3>Dolori Architecto</h3>
+                  <h3>Formations</h3>
                 </a>
                 <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
                 <a href="#" class="stretched-link"></a>
@@ -606,7 +613,7 @@
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
-                <h4>Walter White</h4>
+                <h4>Alex Tagne</h4>
                 <span>Chief Executive Officer</span>
               </div>
             </div>
@@ -624,7 +631,7 @@
                   <a href=""><i class="bi bi-instagram"></i></a>
                   <a href=""><i class="bi bi-linkedin"></i></a>
                 </div>
-                <h4>Sarah Jhonson</h4>
+                <h4>Ptrick Gemegni</h4>
                 <span>Product Manager</span>
               </div>
             </div>
@@ -733,13 +740,13 @@
 
             <div class="info">
               <h3>Get in touch</h3>
-              <p>Et id eius voluptates atque nihil voluptatem enim in tempore minima sit ad mollitia commodi minus.</p>
+              <p></p>
 
               <div class="info-item d-flex">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
                   <h4>Location:</h4>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <p>Cameroun, Douala Carrefour AGIP</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -747,7 +754,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h4>Email:</h4>
-                  <p>info@example.com</p>
+                  <p>contact@tmt.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -755,7 +762,7 @@
                 <i class="bi bi-phone flex-shrink-0"></i>
                 <div>
                   <h4>Call:</h4>
-                  <p>+1 5589 55488 55</p>
+                  <p>+237 654 177 996</p>
                 </div>
               </div><!-- End Info Item -->
 

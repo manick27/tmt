@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailService;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
 {
@@ -30,12 +33,16 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
-            'subject' => [ 'string', 'max:255'],
-            'message' => ['required'],
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:100',
+            'email' => 'required|string|max:100',
+            "subject" => 'string|max:1000',
+            'message' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
 
         $message = new Message();
 
@@ -57,7 +64,18 @@ class MessageController extends Controller
 
         $message->create();
 
-        return view('home');
+        $details = [
+            'title' => $request['subject'],
+            'body' => $request['message'],
+            'destination' => 'nguewouom@gmail.com',
+            'copy' => 'manicknguewouo@gmail.com'
+        ];
+
+        Mail::queue(new MailService($details));
+
+        $message = "message envoyé avec succès";
+
+        return redirect()->back()->with('message', $message);
     }
 
     /**
