@@ -228,7 +228,7 @@
                     <div class="col-md-6">
                     <div class="form-group">
                         <label for="image" class="form-control-label">Photo</label>
-                        <input id="image" class="form-control" name="image" @if (!$edit) type="text" @else type="file" @endif @if (!$edit) value="Vous n'avez pas de photo de profil" @endif  required @if (!$edit) disabled @endif required>
+                        <input id="image" class="form-control" name="image" @if (!$edit) type="text" disabled @else type="file" @endif @if (!$user->image) value="Vous n'avez pas de photo de profil" @else value="{{ $user->image }}" @endif required>
                     </div>
                     </div>
                     @if ($edit)

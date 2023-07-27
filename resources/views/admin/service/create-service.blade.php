@@ -163,12 +163,6 @@
                             <span class="ms-2">Liste services</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/blogs" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-settings-gear-65"></i>
-                            <span class="ms-2">Les Blogs</span>
-                        </a>
-                    </li>
                 </ul>
                 </div>
             </div>
@@ -191,7 +185,7 @@
             @if(session('message'))
                 <div class="alert alert-success"><b>Well done ! </b> {{ session('message') }}.</div>
             @endif
-            
+
             @if(session('error'))
                 <div class="alert alert-danger"><b>Danger ! </b> {{ session('error') }}.</div>
             @endif

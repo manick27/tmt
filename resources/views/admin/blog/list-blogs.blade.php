@@ -163,12 +163,6 @@
                             <span class="ms-2">Créer Blog</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/services" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
-                            <i class="ni ni-settings-gear-65"></i>
-                            <span class="ms-2">Les Services</span>
-                        </a>
-                    </li>
                 </ul>
                 </div>
             </div>
@@ -223,7 +217,7 @@
                             <td class="align-middle text-center">
                                 <div class="ms-auto text-end">
                                   <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Supprimer</a>
-                                  <a class="btn btn-link text-dark px-3 mb-0" href="update/blog/{{ $blog->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Modifier</a>
+                                  <a class="btn btn-link text-dark px-3 mb-0" href="/update/blog/{{ $blog->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Modifier</a>
                                 </div>
                             </td>
                         </tr>

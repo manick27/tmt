@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -160,5 +161,27 @@ class BlogController extends Controller
         $message = "Vous avez supprimé un blog avec succes";
 
         return redirect()->back()->with('message', $message);
+    }
+
+    public function blogsForService($id){
+
+        $blogs = Blog::where('service_id', $id)->get()->reverse();
+
+        $services = Service::all();
+
+        return view('blog.blog', compact('blogs', 'services'));
+    }
+
+    public function blogDetails($id){
+
+        $blog = Blog::findOrFail($id);
+
+        $blogs = Blog::where('service_id', $blog->id)->get()->reverse();
+
+        $comments = Comment::where('blog_id', $blog->id)->get();
+
+        $services = Service::all();
+
+        return view('blog.blog-details', compact('blogs', 'blog', 'services', 'comments'));
     }
 }

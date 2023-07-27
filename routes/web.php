@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocalizationController;
@@ -8,6 +9,8 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Models\Blog;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,8 +26,9 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('home');
-});
+    $services = Service::all();
+    return view('home', compact('services'));
+ });
 
 // Route::view('/home', 'home');
 
@@ -63,6 +67,14 @@ Route::post('/addBlog', [BlogController::class, 'store'])->middleware(['auth', '
 Route::get('/update/blog/{id}', [BlogController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
 
 Route::post('/update/blog/{id}', [BlogController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.blog');
+
+Route::get('/blogs/service/{id}', [BlogController::class, 'blogsForService']);
+
+Route::get('/blog-details/{id}', [BlogController::class, 'blogDetails']);
+
+// Les commentaires
+
+Route::post('/comment/blog/{id}', [CommentController::class, 'store'])->middleware(['auth', 'verified'])->name('comment.blog');
 
 // Les users
 

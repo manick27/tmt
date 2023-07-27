@@ -132,17 +132,12 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Newsletters</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Utilisateurs</p>
                     <h5 class="font-weight-bolder">
-                        {{ $newsletters->count() }}
+                        {{ $users->count() }}
                     </h5>
-                    <div style="display: none">
-                        @foreach ($newsletters as $newsletter)
-                        {{ $dateN = $newsletter->created_at }}
-                        @endforeach
-                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">@if ($newsletters->count()){{ $dateN }}@endif</span>
+                      <span class="text-success text-sm font-weight-bolder"></span>
                     </p>
                   </div>
                 </div>
@@ -166,13 +161,8 @@
                         {{ $services->count() }}
                     </h5>
 
-                    <div style="display: none">
-                        @foreach ($services as $service)
-                        {{ $dateS = $service->created_at }}
-                        @endforeach
-                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">@if ($services->count()){{ $dateS }}@endif</span>
+                      <span class="text-success text-sm font-weight-bolder"></span>
                     </p>
                   </div>
                 </div>
@@ -195,13 +185,8 @@
                     <h5 class="font-weight-bolder">
                       {{ $blogs->count() }}
                     </h5>
-                    <div style="display: none">
-                        @foreach ($blogs as $blog)
-                        {{ $dateB = $blog->created_at }}
-                        @endforeach
-                    </div>
                     <p class="mb-0">
-                      <span class="text-danger text-sm font-weight-bolder">@if ($blogs->count()){{ $dateB }}@endif</span>
+                      <span class="text-danger text-sm font-weight-bolder"></span>
                     </p>
                   </div>
                 </div>
@@ -220,17 +205,12 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Comptes</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Newsletters</p>
                     <h5 class="font-weight-bolder">
-                        {{ $users->count() }}
+                        {{ $newsletters->count() }}
                     </h5>
-                    <div style="display: none">
-                        @foreach ($users as $user)
-                        {{ $dateU = $user->created_at }}
-                        @endforeach
-                    </div>
                     <p class="mb-0">
-                      <span class="text-success text-sm font-weight-bolder">@if ($users->count()){{ $dateU }}@endif</span>
+                      <span class="text-success text-sm font-weight-bolder"></span>
                     </p>
                   </div>
                 </div>
@@ -268,13 +248,13 @@
               <div class="carousel-inner border-radius-lg h-100">
                 @foreach ($services as $service)
 
-                <div class="carousel-item h-100 active" style="background-image: url('./images/{{ $service->image }}'); background-size: cover;">
+                <div class="carousel-item h-100 active" style="background-image: url('/images/{{ $service->image }}'); background-size: cover;">
                     <div class="carousel-caption d-none d-md-block bottom-0 text-start start-0 ms-5">
                       <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
                         <i class="ni ni-camera-compact text-dark opacity-10"></i>
                       </div>
-                      <h5 class="text-white mb-1">{{ $service->title }}</h5>
-                      <p>{{ $service->description }}</p>
+                      <h5 class="text-white mb-1" style="background: rgba(100, 100, 100, 0.7); padding: 0.5rem; border-radius: 7px">{{ $service->title }}</h5>
+                      {{-- <p>{{ $service->description }}</p> --}}
                     </div>
                   </div>
 

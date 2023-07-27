@@ -114,41 +114,33 @@
           <li><a class="nav-link scrollto" href="/#services">{{ __('Services') }}</a></li>
           {{-- <li><a class="nav-link scrollto" href="/#portfolio">{{ __('Portefeuille') }}</a></li> --}}
           <li><a class="nav-link scrollto" href="/#team">{{ __('Equipe') }}</a></li>
-          <li><a href="/blog">{{ __('Blog') }}</a></li>
+          @if ($services->count())
+          <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+                @foreach ($services as $service)
+                <li><a href="/blogs/service/{{ $service->id }}">{{ $service->title }}</a></li>
+                @endforeach
+            </ul>
+          </li>
+          @endif
           <li><a class="nav-link scrollto" href="/#contact">{{ __('Contact') }}</a></li>
 
-          @if (!Auth::user())
         <li>
             <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
                 <img src="/assets/img/fr.jpg" alt="" width="30">
-                {{-- {{ __('Français') }} --}}
             </a>
         </li>
         <li>
             <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
                 <img src="/assets/img/en.webp" alt="" width="30" height="20">
-                {{-- {{ __('Anglais') }} --}}
             </a>
         </li>
-        @else
-          <li class="dropdown"><a href="#"><span>{{ Auth::user()->first_name }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          @if (Auth::user())
+          <li class="dropdown"><a href="#"><span>{{ Auth::user()->email }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 @if (Auth::user()->is_admin)
                     <li><a href="home">{{ __('Tableau de bord') }}</a></li>
                 @endif
-              <li><a href="#">{{ Auth::user()->email }}</a></li>
-              <li>
-                  <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'fr']) }}">
-                      <img src="/assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
-                      {{ __('Français') }}
-                  </a>
-              </li>
-              <li>
-                  <a class="nav-link scrollto" href="{{ route('setlang', ['lang' => 'en']) }}">
-                      <img src="/assets/img/en.webp" alt="" width="30" height="20">
-                      {{ __('Anglais') }}
-                  </a>
-              </li>
             </ul>
           </li>
           @endif

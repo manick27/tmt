@@ -107,43 +107,33 @@
           <li><a class="nav-link scrollto" href="/#services"><?php echo e(__('Services')); ?></a></li>
           
           <li><a class="nav-link scrollto" href="/#team"><?php echo e(__('Equipe')); ?></a></li>
-          <li><a href="/blog"><?php echo e(__('Blog')); ?></a></li>
+          <?php if($services->count()): ?>
+          <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul>
+                <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <li><a href="/blogs/service/<?php echo e($service->id); ?>"><?php echo e($service->title); ?></a></li>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </ul>
+          </li>
+          <?php endif; ?>
           <li><a class="nav-link scrollto" href="/#contact"><?php echo e(__('Contact')); ?></a></li>
 
-          <?php if(!Auth::user()): ?>
         <li>
             <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'fr'])); ?>">
                 <img src="/assets/img/fr.jpg" alt="" width="30">
-                
             </a>
         </li>
         <li>
             <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'en'])); ?>">
                 <img src="/assets/img/en.webp" alt="" width="30" height="20">
-                
             </a>
         </li>
-        <?php else: ?>
-          <li class="dropdown"><a href="#"><span><?php echo e(Auth::user()->first_name); ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <?php if(Auth::user()): ?>
+          <li class="dropdown"><a href="#"><span><?php echo e(Auth::user()->email); ?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 <?php if(Auth::user()->is_admin): ?>
                     <li><a href="home"><?php echo e(__('Tableau de bord')); ?></a></li>
                 <?php endif; ?>
-              <li><a href="#"><?php echo e(Auth::user()->email); ?></a></li>
-              <li>
-                  <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'fr'])); ?>">
-                      <img src="/assets/img/fr.jpg" alt="" width="30" style="margin-left: 0">
-                      <?php echo e(__('Français')); ?>
-
-                  </a>
-              </li>
-              <li>
-                  <a class="nav-link scrollto" href="<?php echo e(route('setlang', ['lang' => 'en'])); ?>">
-                      <img src="/assets/img/en.webp" alt="" width="30" height="20">
-                      <?php echo e(__('Anglais')); ?>
-
-                  </a>
-              </li>
             </ul>
           </li>
           <?php endif; ?>

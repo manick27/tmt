@@ -7,6 +7,9 @@
 @section('content')
 <main id="main">
 
+    <?php
+    use App\Models\User;
+    ?>
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
@@ -14,9 +17,9 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Blog Details</h2>
           <ol>
-            <li><a href="home">Home</a></li>
+            <li><a href="home">{{ __('Accueil') }}</a></li>
             <li><a href="blog">Blog</a></li>
-            <li>Blog Details</li>
+            <li>{{ $blog->title }}</li>
           </ol>
         </div>
 
@@ -34,57 +37,27 @@
             <article class="blog-details">
 
               <div class="post-img">
-                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                <img src="/images/{{ $blog->image }}" alt="" class="img-fluid">
               </div>
 
-              <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
+              <h2 class="title">{{ $blog->title }}</h2>
+
+              <?php
+
+                $user = User::findOrFail($blog->user_id);
+
+              ?>
 
               <div class="meta-top">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">{{ $user->last_name }} {{ $user->first_name }}</a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2020-01-01">{{ $blog->created_at }}</time></a></li>
+                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">{{ $comments->count() }} {{ __('Commentaires') }}</a></li>
                 </ul>
               </div><!-- End meta top -->
 
               <div class="content">
-                <p>
-                  Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                  Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
-                </p>
-
-                <p>
-                  Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
-                </p>
-
-                <blockquote>
-                  <p>
-                    Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
-                  </p>
-                </blockquote>
-
-                <p>
-                  Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
-                  Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
-                  Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
-                </p>
-
-                <h3>Et quae iure vel ut odit alias.</h3>
-                <p>
-                  Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
-                  Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
-                  Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
-                </p>
-                <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="">
-
-                <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
-                <p>
-                  Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
-                  Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
-                </p>
-                <p>
-                  Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
-                </p>
+                <p>{{$blog->description}}</p>
 
               </div><!-- End post content -->
 
@@ -104,8 +77,8 @@
 
             </article><!-- End blog post -->
 
-            <div class="post-author d-flex align-items-center">
-              <img src="assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt="">
+            {{-- <div class="post-author d-flex align-items-center">
+              <img src="/assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt="">
               <div>
                 <h4>Jane Smith</h4>
                 <div class="social-links">
@@ -117,125 +90,51 @@
                   Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
                 </p>
               </div>
-            </div><!-- End post author -->
+            </div><!-- End post author --> --}}
 
             <div class="comments">
 
-              <h4 class="comments-count">8 Comments</h4>
+              <h4 class="comments-count">{{ $comments->count() }} {{ __('Commentaires') }}</h4>
+              @foreach ($comments as $comment)
+
+              <?php
+
+                $user = User::findOrFail($comment->user_id);
+
+              ?>
 
               <div id="comment-1" class="comment">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div class="comment-img"><img src="/images/{{ $user->image }}" alt=""></div>
                   <div>
-                    <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan,2022</time>
-                    <p>
-                      Et rerum totam nisi. Molestiae vel quam dolorum vel voluptatem et et. Est ad aut sapiente quis molestiae est qui cum soluta.
-                      Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
-                    </p>
+                    <h5><a href="">{{ $user->first_name }} {{ $user->last_name }}</a></h5>
+                    <time datetime="2020-01-01">{{ $comment->created_at }}</time>
+                    <p>{{$comment->comment}}</p>
                   </div>
                 </div>
               </div><!-- End comment #1 -->
 
-              <div id="comment-2" class="comment">
-                <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-2.jpg" alt=""></div>
-                  <div>
-                    <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan,2022</time>
-                    <p>
-                      Ipsam tempora sequi voluptatem quis sapiente non. Autem itaque eveniet saepe. Officiis illo ut beatae.
-                    </p>
-                  </div>
-                </div>
-
-                <div id="comment-reply-1" class="comment comment-reply">
-                  <div class="d-flex">
-                    <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
-                    <div>
-                      <h5><a href="">Lynda Small</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                      <time datetime="2020-01-01">01 Jan,2022</time>
-                      <p>
-                        Enim ipsa eum fugiat fuga repellat. Commodi quo quo dicta. Est ullam aspernatur ut vitae quia mollitia id non. Qui ad quas nostrum rerum sed necessitatibus aut est. Eum officiis sed repellat maxime vero nisi natus. Amet nesciunt nesciunt qui illum omnis est et dolor recusandae.
-
-                        Recusandae sit ad aut impedit et. Ipsa labore dolor impedit et natus in porro aut. Magnam qui cum. Illo similique occaecati nihil modi eligendi. Pariatur distinctio labore omnis incidunt et illum. Expedita et dignissimos distinctio laborum minima fugiat.
-
-                        Libero corporis qui. Nam illo odio beatae enim ducimus. Harum reiciendis error dolorum non autem quisquam vero rerum neque.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div id="comment-reply-2" class="comment comment-reply">
-                    <div class="d-flex">
-                      <div class="comment-img"><img src="assets/img/blog/comments-4.jpg" alt=""></div>
-                      <div>
-                        <h5><a href="">Sianna Ramsay</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                        <time datetime="2020-01-01">01 Jan,2022</time>
-                        <p>
-                          Et dignissimos impedit nulla et quo distinctio ex nemo. Omnis quia dolores cupiditate et. Ut unde qui eligendi sapiente omnis ullam. Placeat porro est commodi est officiis voluptas repellat quisquam possimus. Perferendis id consectetur necessitatibus.
-                        </p>
-                      </div>
-                    </div>
-
-                  </div><!-- End comment reply #2-->
-
-                </div><!-- End comment reply #1-->
-
-              </div><!-- End comment #2-->
-
-              <div id="comment-3" class="comment">
-                <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
-                  <div>
-                    <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan,2022</time>
-                    <p>
-                      Distinctio nesciunt rerum reprehenderit sed. Iste omnis eius repellendus quia nihil ut accusantium tempore. Nesciunt expedita id dolor exercitationem aspernatur aut quam ut. Voluptatem est accusamus iste at.
-                      Non aut et et esse qui sit modi neque. Exercitationem et eos aspernatur. Ea est consequuntur officia beatae ea aut eos soluta. Non qui dolorum voluptatibus et optio veniam. Quam officia sit nostrum dolorem.
-                    </p>
-                  </div>
-                </div>
-
-              </div><!-- End comment #3 -->
-
-              <div id="comment-4" class="comment">
-                <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
-                  <div>
-                    <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
-                    <time datetime="2020-01-01">01 Jan,2022</time>
-                    <p>
-                      Dolorem atque aut. Omnis doloremque blanditiis quia eum porro quis ut velit tempore. Cumque sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
-                    </p>
-                  </div>
-                </div>
-
-              </div><!-- End comment #4 -->
+              @endforeach
 
               <div class="reply-form">
 
-                <h4>Leave a Reply</h4>
-                <p>Your email address will not be published. Required fields are marked * </p>
-                <form action="">
-                  <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input name="name" type="text" class="form-control" placeholder="Your Name*">
-                    </div>
-                    <div class="col-md-6 form-group">
-                      <input name="email" type="text" class="form-control" placeholder="Your Email*">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col form-group">
-                      <input name="website" type="text" class="form-control" placeholder="Your Website">
-                    </div>
-                  </div>
+                <h4>{{ __('Laissez un commentaire') }}</h4>
+                <p>{{ __('Si vous êtes connecté, vous pouvez laisser un commentaire') }} </p>
+                @if(session('message'))
+                    <div class="alert alert-success"><b>Well done ! </b> {{ session('message') }}.</div>
+                @endif
+
+                @if(session('error'))
+                    <div class="alert alert-danger"><b>Danger ! </b> {{ session('error') }}.</div>
+                @endif
+                <form action="{{ route('comment.blog', ['id' => $blog->id]) }}" method="POST">
+                    @csrf
                   <div class="row">
                     <div class="col form-group">
-                      <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
+                      <textarea name="comment" class="form-control" placeholder="{{ __('Votre Commentaire') }}"></textarea>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary">Post Comment</button>
+                  <button type="submit" class="btn btn-primary">{{ __('Poster commentaire') }}</button>
 
                 </form>
 
@@ -247,93 +146,16 @@
 
           <div class="col-lg-4">
 
-            <div class="sidebar">
-
-              <div class="sidebar-item search-form">
-                <h3 class="sidebar-title">Search</h3>
-                <form action="" class="mt-3">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
+            <div class="sidebar"><!-- End sidebar search formn-->
 
               <div class="sidebar-item categories">
-                <h3 class="sidebar-title">Categories</h3>
+                <h3 class="sidebar-title">{{ __('Tous les blogs pour le même service') }}</h3>
                 <ul class="mt-3">
-                  <li><a href="#">General <span>(25)</span></a></li>
-                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                  <li><a href="#">Travel <span>(5)</span></a></li>
-                  <li><a href="#">Design <span>(22)</span></a></li>
-                  <li><a href="#">Creative <span>(8)</span></a></li>
-                  <li><a href="#">Educaion <span>(14)</span></a></li>
+                    @foreach ($blogs as $blog)
+                    <li><a href="/blog-details/{{ $blog->id }}">{{ $blog->title }} <span></span></a></li>
+                    @endforeach
                 </ul>
               </div><!-- End sidebar categories-->
-
-              <div class="sidebar-item recent-posts">
-                <h3 class="sidebar-title">Recent Posts</h3>
-
-                <div class="mt-3">
-
-                  <div class="post-item mt-3">
-                    <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Nihil blanditiis at in nihil autem</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Quidem autem et impedit</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Laborum corporis quo dara net para</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-              <div class="sidebar-item tags">
-                <h3 class="sidebar-title">Tags</h3>
-                <ul class="mt-3">
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div><!-- End sidebar tags-->
 
             </div><!-- End Blog Sidebar -->
 
@@ -347,331 +169,75 @@
 
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
-      <div class="container">
-
-        <div class="d-flex justify-content-between align-items-center">
-          <h2>Blog</h2>
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>Blog</li>
-          </ol>
-        </div>
-
-      </div>
-    </div><!-- End Breadcrumbs -->
-
-    <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog">
-      <div class="container" data-aos="fade-up">
-
-        <div class="row g-5">
-
-          <div class="col-lg-8">
-
-            <div class="row gy-4 posts-list">
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Nisi magni odit consequatur autem nulla dolorem</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      Incidunt voluptate sit temporibus aperiam. Quia vitae aut sint ullam quis illum voluptatum et. Quo libero rerum voluptatem pariatur nam.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Possimus soluta ut id suscipit ea ut. In quo quia et soluta libero sit sint.</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      Aut iste neque ut illum qui perspiciatis similique recusandae non. Fugit autem dolorem labore omnis et. Eum temporibus fugiat voluptate enim tenetur sunt omnis.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-4.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem.</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-5.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Accusamus quaerat aliquam qui debitis facilis consequatur</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      In itaque assumenda aliquam voluptatem qui temporibus iusto nisi quia. Autem vitae quas aperiam nesciunt mollitia tempora odio omnis. Ipsa odit sit ut amet necessitatibus. Quo ullam ut corrupti autem consequuntur totam dolorem.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-              <div class="col-lg-6">
-                <article class="d-flex flex-column">
-
-                  <div class="post-img">
-                    <img src="assets/img/blog/blog-6.jpg" alt="" class="img-fluid">
-                  </div>
-
-                  <h2 class="title">
-                    <a href="blog-details">Distinctio provident quibusdam numquam aperiam aut</a>
-                  </h2>
-
-                  <div class="meta-top">
-                    <ul>
-                      <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">John Doe</a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2022-01-01">Jan 1, 2022</time></a></li>
-                      <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">12 Comments</a></li>
-                    </ul>
-                  </div>
-
-                  <div class="content">
-                    <p>
-                      Expedita et temporibus eligendi enim molestiae est architecto praesentium dolores. Illo laboriosam officiis quis. Labore officia quia sit voluptatem nisi est dignissimos totam. Et voluptate et consectetur voluptatem id dolor magni impedit. Omnis dolores sit.
-                    </p>
-                  </div>
-
-                  <div class="read-more mt-auto align-self-end">
-                    <a href="blog-details">Read More</a>
-                  </div>
-
-                </article>
-              </div><!-- End post list item -->
-
-            </div><!-- End blog posts list -->
-
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-              </ul>
-            </div><!-- End blog pagination -->
-
-          </div>
-
-          <div class="col-lg-4">
-
-            <div class="sidebar">
-
-              <div class="sidebar-item search-form">
-                <h3 class="sidebar-title">Search</h3>
-                <form action="" class="mt-3">
-                  <input type="text">
-                  <button type="submit"><i class="bi bi-search"></i></button>
-                </form>
-              </div><!-- End sidebar search formn-->
-
-              <div class="sidebar-item categories">
-                <h3 class="sidebar-title">Categories</h3>
-                <ul class="mt-3">
-                  <li><a href="#">General <span>(25)</span></a></li>
-                  <li><a href="#">Lifestyle <span>(12)</span></a></li>
-                  <li><a href="#">Travel <span>(5)</span></a></li>
-                  <li><a href="#">Design <span>(22)</span></a></li>
-                  <li><a href="#">Creative <span>(8)</span></a></li>
-                  <li><a href="#">Educaion <span>(14)</span></a></li>
-                </ul>
-              </div><!-- End sidebar categories-->
-
-              <div class="sidebar-item recent-posts">
-                <h3 class="sidebar-title">Recent Posts</h3>
-
-                <div class="mt-3">
-
-                  <div class="post-item mt-3">
-                    <img src="assets/img/blog/blog-recent-1.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Nihil blanditiis at in nihil autem</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-2.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Quidem autem et impedit</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-3.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Id quia et et ut maxime similique occaecati ut</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-4.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Laborum corporis quo dara net para</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                  <div class="post-item">
-                    <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
-                    <div>
-                      <h4><a href="blog-post.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                      <time datetime="2020-01-01">Jan 1, 2020</time>
-                    </div>
-                  </div><!-- End recent post item-->
-
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-              <div class="sidebar-item tags">
-                <h3 class="sidebar-title">Tags</h3>
-                <ul class="mt-3">
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div><!-- End sidebar tags-->
-
-            </div><!-- End Blog Sidebar -->
-
+        <div class="container">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>Blog</h2>
+            <ol>
+              <li><a href="index.html">{{ __('Accueil') }}</a></li>
+              <li>Blog</li>
+            </ol>
           </div>
 
         </div>
+      </div><!-- End Breadcrumbs -->
 
-      </div>
-    </section><!-- End Blog Section -->
+      <!-- ======= Blog Section ======= -->
+      <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+          <div class="row g-5">
+
+            <div class="col-lg-12">
+
+              <div class="row gy-4 posts-list">
+
+                  @if (!$blogs->count())
+                      <p style="font-size: 3rem">{{ __('Pas de publication pour ce service.') }}</p>
+                  @endif
+                  @foreach ($blogs as $blog)
+
+                  <div class="col-lg-4">
+                    <article class="d-flex flex-column">
+
+                      <div class="post-img">
+                        <img src="/images/{{ $blog->image }}" alt="" class="img-fluid">
+                      </div>
+
+                      <h2 class="title">
+                        <a href="/blog-details/{{ $blog->id }}">{{ $blog->title }}</a>
+                      </h2>
+
+                      <div class="meta-top">
+                        <ul>
+                          <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details">{{ $user->first_name }}</a></li>
+                          <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details"><time datetime="2020-01-01">{{ $blog->created_at }}</time></a></li>
+                          <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details">{{ $comments->count() }} {{ __('Commentaires') }}</a></li>
+                        </ul>
+                      </div>
+
+                      <div class="content">
+                        <p>
+                          {{-- {{ $blog->r_description }} --}}
+                        </p>
+                      </div>
+
+                      <div class="read-more mt-auto align-self-end">
+                        <a href="/blog-details/{{ $blog->id }}">{{ __('En savoir plus') }}</a>
+                      </div>
+
+                    </article>
+                  </div><!-- End post list item -->
+
+                  @endforeach
+
+              </div><!-- End blog posts list -->
+
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End Blog Section -->
 
   </main><!-- End #main -->
 
