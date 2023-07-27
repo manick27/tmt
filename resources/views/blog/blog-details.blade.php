@@ -56,7 +56,7 @@
                 </ul>
               </div><!-- End meta top -->
 
-              <div class="content">
+              {{-- <div class="content">
                 <p>{{$blog->description}}</p>
 
               </div><!-- End post content -->
@@ -73,7 +73,7 @@
                   <li><a href="#">Tips</a></li>
                   <li><a href="#">Marketing</a></li>
                 </ul>
-              </div><!-- End meta bottom -->
+              </div><!-- End meta bottom --> --}}
 
             </article><!-- End blog post -->
 
