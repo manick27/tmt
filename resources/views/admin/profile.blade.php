@@ -254,7 +254,7 @@
                         <img src="/images/{{ $user->image }}" class="rounded-circle img-fluid border border-2 border-white">
                     @else
                         {{-- <i class="ni ni-satisfied text-dark text-sm opacity-10"></i> --}}
-                        <img src="/assets/admin/assets/img/team-2.jpg" class="rounded-circle img-fluid border border-2 border-white">
+                        <img src="/assets/img/john.png" class="rounded-circle img-fluid border border-2 border-white">
                     @endif
                   </a>
                 </div>

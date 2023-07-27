@@ -105,7 +105,13 @@
 
               <div id="comment-1" class="comment">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="/images/{{ $user->image }}" alt=""></div>
+                  <div class="comment-img">
+                    @if ($user->image)
+                    <img src="/images/{{ $user->image }}" alt="">
+                    @else
+                    <img src="/assets/img/john.png" alt="">
+                    @endif
+                </div>
                   <div>
                     <h5><a href="">{{ $user->first_name }} {{ $user->last_name }}</a></h5>
                     <time datetime="2020-01-01">{{ $comment->created_at }}</time>

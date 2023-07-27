@@ -27,7 +27,8 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $services = Service::all();
-    return view('home', compact('services'));
+    $blogs = Blog::orderBy('created_at', 'asc')->limit(3)->get();
+    return view('home', compact('services', 'blogs'));
  });
 
 // Route::view('/home', 'home');
