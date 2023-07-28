@@ -484,7 +484,7 @@
                   <div class="icon">
                     <i class="bi bi-activity"></i>
                   </div>
-                  <a href="#" class="stretched-link">
+                  <a href="/blogs/service/{{ $service->id }}" class="stretched-link">
                     <h3>{{ $service->title }}</h3>
                   </a>
                   <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
@@ -996,7 +996,7 @@
 
         <div class="section-header">
           <h2>Blog</h2>
-          <p>Recent posts form our Blog</p>
+          <p>{{ __('Articles récents de notre blog') }}</p>
         </div>
 
         <div class="row">

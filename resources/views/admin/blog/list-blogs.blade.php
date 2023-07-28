@@ -221,10 +221,10 @@
                                 <div class="ms-auto text-end">
                                   <a class="btn btn-link text-dark px-3 mb-0" href="/update/blog/{{ $blog->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
                                   <!-- Button trigger modal -->
-                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-trash-alt me-2"></i></a>
+                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $blog->id }}"><i class="far fa-trash-alt me-2"></i></a>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
