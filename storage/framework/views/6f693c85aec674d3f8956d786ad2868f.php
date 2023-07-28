@@ -591,6 +591,9 @@
 
         <div class="row">
 
+            <?php if(!$blogs->count()): ?>
+            <p style="font-size: 3rem; text-align: center"><?php echo e(__('Pas de publications pour le moment.')); ?></p>
+            <?php endif; ?>
             <?php $__currentLoopData = $blogs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $blog): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
             <?php

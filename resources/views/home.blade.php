@@ -1001,6 +1001,9 @@
 
         <div class="row">
 
+            @if (!$blogs->count())
+            <p style="font-size: 3rem; text-align: center">{{ __('Pas de publications pour le moment.') }}</p>
+            @endif
             @foreach ($blogs as $blog)
 
             <?php
