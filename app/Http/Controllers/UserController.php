@@ -6,7 +6,9 @@ use App\Models\Newsletter;
 use App\Models\Service;
 use App\Models\User;
 use App\Models\Blog;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
@@ -171,9 +173,17 @@ class UserController extends Controller
 
         $services = Service::where('user_id', Auth::user()->id)->get();
 
+        $comments = new Collection();
+        foreach($blogs as $blog){
+            $comment = Comment::where('blog_id', $blog->id)->get();
+            $comments->push($comment);
+        }
+
+        $nberComment = $comments->count();
+
         $edit = false;
 
-        return view('admin.profile', compact('user', 'blogs', 'services', 'edit'));
+        return view('admin.profile', compact('user', 'blogs', 'services', 'edit', 'nberComment'));
     }
 
     public function editMyProfile()

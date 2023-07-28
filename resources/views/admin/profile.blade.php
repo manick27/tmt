@@ -262,7 +262,11 @@
             </div>
             <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
               <div class="d-flex justify-content-between">
-                <a href="/logout" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Déconnexion</a>
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button class="btn btn-sm btn-info mb-0 d-none d-lg-block">{{ __('Se déconnecter') }}</button>
+                </form>
+                {{-- <a href="/logout" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Déconnexion</a> --}}
                 <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i class="ni ni-collection"></i></a>
                 <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Messages</a>
                 <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-block d-lg-none"><i class="ni ni-email-83"></i></a>
@@ -281,8 +285,8 @@
                       <span class="text-sm opacity-8">Services</span>
                     </div>
                     <div class="d-grid text-center">
-                      <span class="text-lg font-weight-bolder">89</span>
-                      <span class="text-sm opacity-8">Comments</span>
+                      <span class="text-lg font-weight-bolder">{{ $nberComment }}</span>
+                      <span class="text-sm opacity-8">Commentaires</span>
                     </div>
                   </div>
                 </div>
