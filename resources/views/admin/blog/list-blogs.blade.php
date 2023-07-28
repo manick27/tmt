@@ -242,7 +242,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                    <a href="/delete/blog/{{ $blog->id }}" class="btn bg-gradient-primary">Confirmer</a>
+                                                    <a href="/blog/{{ $blog->blog_uid }}/delete" class="btn bg-gradient-primary">Confirmer</a>
                                                 </div>
                                             </div>
                                         </div>
