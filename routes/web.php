@@ -73,7 +73,7 @@ Route::post('/update/blog/{id}', [BlogController::class, 'update'])->middleware(
 
 Route::get('/blogs/service/{id}', [BlogController::class, 'blogsForService']);
 
-Route::get('/blog-details/{id}', [BlogController::class, 'blogDetails']);
+Route::get('/blog/{id}/details', [BlogController::class, 'blogDetails']);
 
 Route::get('/delete/blog/{id}', [BlogController::class, 'delete'])->middleware(['auth', 'verified', 'is_admin'])->name('delete.blog');
 

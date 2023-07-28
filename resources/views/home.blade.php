@@ -1018,7 +1018,7 @@
               </div>
               <h3 class="post-title">{{ $blog->title }}</h3>
               {{-- <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa est officiis. Modi cupiditate exercitationem qui magni est...</p> --}}
-              <a href="/blog-details/{{ $blog->id }}" class="readmore stretched-link"><span>{{ __('En savoir plus') }}</span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog/{{ $blog->id }}/details" class="readmore stretched-link"><span>{{ __('En savoir plus') }}</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
