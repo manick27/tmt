@@ -148,7 +148,7 @@
             </div>
           </div>
           <!-- Second Nav-menu -->
-            <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
+            {{-- <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                 <div class="nav-wrapper position-relative end-0">
                 <ul class="nav nav-pills nav-fill p-1">
                     <li class="nav-item">
@@ -171,7 +171,7 @@
                     </li>
                 </ul>
                 </div>
-            </div>
+            </div> --}}
             <!-- End of second Nav-Menu -->
         </div>
       </div>
@@ -214,12 +214,11 @@
                                 <p class="text-sm font-weight-bold mb-0">{{ $message->email }}</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold">{{ $message->suject }}</span>
+                                <span class="text-xs font-weight-bold">{{ $message->subject }}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <div class="ms-auto text-end">
-                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Supprimer</a>
-                                  <a class="btn btn-link text-dark px-3 mb-0" href="update/service/{{ $message->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Modifier</a>
+                                  <a class="btn btn-link text-dark px-3 mb-0" href="detail/message/{{ $message->id }}">Details</a>
                                 </div>
                             </td>
                         </tr>
