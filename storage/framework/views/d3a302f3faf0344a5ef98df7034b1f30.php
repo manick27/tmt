@@ -108,7 +108,7 @@
           
           <li><a class="nav-link scrollto" href="/#team"><?php echo e(__('Equipe')); ?></a></li>
           <?php if($services->count()): ?>
-          <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="/#recent-blog-posts"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li><a href="/blogs/service/<?php echo e($service->id); ?>"><?php echo e($service->title); ?></a></li>

@@ -115,7 +115,7 @@
           {{-- <li><a class="nav-link scrollto" href="/#portfolio">{{ __('Portefeuille') }}</a></li> --}}
           <li><a class="nav-link scrollto" href="/#team">{{ __('Equipe') }}</a></li>
           @if ($services->count())
-          <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown"><a href="/#recent-blog-posts"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 @foreach ($services as $service)
                 <li><a href="/blogs/service/{{ $service->id }}">{{ $service->title }}</a></li>
