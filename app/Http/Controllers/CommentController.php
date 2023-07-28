@@ -51,7 +51,7 @@ class CommentController extends Controller
 
             $comment->save();
 
-            $message = "comment ajoute avec succes";
+            $message = "comment publié avec succes";
 
             return redirect()->back()->with('message', $message);
         }else{

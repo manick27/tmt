@@ -484,7 +484,7 @@
                   <div class="icon">
                     <i class="bi bi-activity"></i>
                   </div>
-                  <a href="/blogs/service/{{ $service->id }}" class="stretched-link">
+                  <a href="/service/{{ $service->service_uid }}/blogs" class="stretched-link">
                     <h3>{{ $service->title }}</h3>
                   </a>
                   <p>{{ $service->description }}</p>

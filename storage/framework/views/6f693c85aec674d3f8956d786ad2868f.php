@@ -482,7 +482,7 @@
                   <div class="icon">
                     <i class="bi bi-activity"></i>
                   </div>
-                  <a href="/blogs/service/<?php echo e($service->id); ?>" class="stretched-link">
+                  <a href="/service/<?php echo e($service->service_uid); ?>/blogs" class="stretched-link">
                     <h3><?php echo e($service->title); ?></h3>
                   </a>
                   <p><?php echo e($service->description); ?></p>

@@ -71,7 +71,7 @@ Route::get('/blog/{id}/update', [BlogController::class, 'edit'])->middleware(['a
 
 Route::post('/blog/{id}/update', [BlogController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('blog.update');
 
-Route::get('/blogs/service/{id}', [BlogController::class, 'blogsForService']);
+Route::get('/service/{id}/blogs', [BlogController::class, 'blogsForService']);
 
 Route::get('/blog/{id}/details', [BlogController::class, 'blogDetails']);
 

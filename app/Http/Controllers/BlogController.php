@@ -181,7 +181,9 @@ class BlogController extends Controller
 
     public function blogsForService($id){
 
-        $blogs = Blog::where('service_id', $id)->get()->reverse();
+        $service = Service::where('service_uid', $id)->first();
+        
+        $blogs = Blog::where('service_id', $service->id)->get()->reverse();
 
         $services = Service::all();
 
