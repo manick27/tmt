@@ -64,6 +64,8 @@ class ServiceController extends Controller
 
         $service->user_id = Auth::user()->id;
 
+        $service->service_uid = uniqid();
+
         $service->save();
 
         $message = "Service ajouté avec succes";
@@ -87,7 +89,7 @@ class ServiceController extends Controller
     // public function edit(Service $service)
     public function edit($id)
     {
-        $service = Service::findOrFail($id);
+        $service = Service::where('service_uid', $id)->first();
 
         return view('admin.service.update-service', compact('service'));
     }
@@ -108,7 +110,7 @@ class ServiceController extends Controller
             return redirect()->back()->with('error', $validator->errors());
         }
 
-        $service = Service::findOrFail($id);
+        $service = Service::where('service_uid', $id)->first();
 
         if($request['title'] != null ){
             $service->title = $request['title'];
@@ -148,8 +150,8 @@ class ServiceController extends Controller
 
     public function delete($id){
 
-        $service = Service::findOrFail($id);
-        
+        $service = Service::where('service_uid', $id)->first();
+
         $service->delete();
 
         $message = "Vous avez supprimé un service avec succes";

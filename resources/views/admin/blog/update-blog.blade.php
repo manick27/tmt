@@ -152,7 +152,7 @@
                 <div class="nav-wrapper position-relative end-0">
                 <ul class="nav nav-pills nav-fill p-1">
                     <li class="nav-item">
-                        <a href="/addBlog" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 active py-1 d-flex align-items-center justify-content-center">
+                        <a href="/add/blog" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 active py-1 d-flex align-items-center justify-content-center">
                             <i class="ni ni-email-83"></i>
                             <span class="ms-2">Modifier Blog</span>
                         </a>

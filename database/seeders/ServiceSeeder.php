@@ -19,6 +19,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'assistance_visa.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
         Service::create([
@@ -27,6 +28,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'reservation_billet.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
         Service::create([
@@ -35,6 +37,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'bourses.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
         Service::create([
@@ -43,6 +46,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'agriculture.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
         Service::create([
@@ -51,6 +55,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'import_export.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
         Service::create([
@@ -59,6 +64,7 @@ class ServiceSeeder extends Seeder
             'description' => 'admin@gmail.com',
             'image' => 'formation.jfif',
             'user_id' => 1,
+            'service_uid' => uniqid(),
 
         ]);
     }

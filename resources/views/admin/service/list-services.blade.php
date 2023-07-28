@@ -158,7 +158,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="addService" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
+                        <a href="add/service" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
                             <i class="ni ni-email-83"></i>
                             <span class="ms-2">Ajouter service</span>
                         </a>
@@ -217,12 +217,12 @@
                             </td> --}}
                             <td class="align-middle text-center">
                                 <div class="ms-auto text-end">
-                                  <a class="btn btn-link text-dark px-3 mb-0" href="/update/service/{{ $service->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
+                                  <a class="btn btn-link text-dark px-3 mb-0" href="/service/{{ $service->service_uid }}/update"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
                                   <!-- Button trigger modal -->
-                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $service->id }}"><i class="far fa-trash-alt me-2"></i></a>
+                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $service->service_uid }}"><i class="far fa-trash-alt me-2"></i></a>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteModal{{ $service->service_uid }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -238,7 +238,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                    <a href="/delete/service/{{ $service->id }}" class="btn bg-gradient-primary">Confirmer</a>
+                                                    <a href="/service/{{ $service->service_uid }}/delete" class="btn bg-gradient-primary">Confirmer</a>
                                                 </div>
                                             </div>
                                         </div>

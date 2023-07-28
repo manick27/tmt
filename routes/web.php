@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    $services = Service::limit(6)->get();
+    $services = Service::all();
     $blogs = Blog::latest()->limit(3)->get()->reverse();
     return view('home', compact('services', 'blogs'));
  });
@@ -49,23 +49,23 @@ Route::get('/newsletters', [NewsletterController::class, 'index'])->middleware([
 
 Route::get('/services', [ServiceController::class, 'index'])->middleware(['auth', 'verified', 'is_admin'])->name('services');
 
-Route::get('/addService', [ServiceController::class, 'create'])->middleware(['auth', 'verified', 'is_admin']);
+Route::get('/add/service', [ServiceController::class, 'create'])->middleware(['auth', 'verified', 'is_admin']);
 
-Route::post('/addService', [ServiceController::class, 'store'])->middleware(['auth', 'verified', 'is_admin'])->name('add.service');
+Route::post('/add/service', [ServiceController::class, 'store'])->middleware(['auth', 'verified', 'is_admin'])->name('add.service');
 
-Route::get('/update/service/{id}', [ServiceController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
+Route::get('/service/{id}/update', [ServiceController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
 
-Route::post('/update/service/{id}', [ServiceController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.service');
+Route::post('/service/{id}/update', [ServiceController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('service.update');
 
-Route::get('/delete/service/{id}', [ServiceController::class, 'delete'])->middleware(['auth', 'verified', 'is_admin'])->name('delete.service');
+Route::get('/service/{id}/delete', [ServiceController::class, 'delete'])->middleware(['auth', 'verified', 'is_admin'])->name('service.delete');
 
 //Les blogs
 
 Route::get('/blogs', [BlogController::class, 'index'])->middleware(['auth', 'verified', 'is_admin'])->name('blogs');
 
-Route::get('/addBlog', [BlogController::class, 'create'])->middleware(['auth', 'verified', 'is_admin']);
+Route::get('/add/blog', [BlogController::class, 'create'])->middleware(['auth', 'verified', 'is_admin']);
 
-Route::post('/addBlog', [BlogController::class, 'store'])->middleware(['auth', 'verified', 'is_admin'])->name('add.blog');
+Route::post('/add/blog', [BlogController::class, 'store'])->middleware(['auth', 'verified', 'is_admin'])->name('add.blog');
 
 Route::get('/blog/{id}/update', [BlogController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
 
