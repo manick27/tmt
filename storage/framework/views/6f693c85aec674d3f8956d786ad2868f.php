@@ -608,7 +608,7 @@
               </div>
               <h3 class="post-title"><?php echo e($blog->title); ?></h3>
               
-              <a href="/blog/<?php echo e($blog->id); ?>/details" class="readmore stretched-link"><span><?php echo e(__('En savoir plus')); ?></span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog/<?php echo e($blog->blog_uid); ?>/details" class="readmore stretched-link"><span><?php echo e(__('En savoir plus')); ?></span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 

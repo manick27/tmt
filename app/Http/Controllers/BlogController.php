@@ -79,6 +79,8 @@ class BlogController extends Controller
 
         $blog->user_id = Auth::user()->id;
 
+        $blog->blog_uid = uniqid();
+
         // dd($blog);
         $blog->save();
 
@@ -103,7 +105,7 @@ class BlogController extends Controller
     // public function edit(blog $blog)
     public function edit($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('blog_uid', $id)->first();
         $services = Service::all();
 
         return view('admin.blog.update-blog', compact('blog', 'services'));
@@ -124,7 +126,7 @@ class BlogController extends Controller
             return redirect()->back()->with('error', $validator->errors());
         }
 
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('blog_uid', $id)->first();
 
         if($request['title'] != null ){
             $blog->title = $request['title'];
@@ -168,7 +170,7 @@ class BlogController extends Controller
 
     public function delete($id){
 
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('blog_uid', $id)->first();
 
         $blog->delete();
 
@@ -188,7 +190,7 @@ class BlogController extends Controller
 
     public function blogDetails($id){
 
-        $blog = Blog::findOrFail($id);
+        $blog = Blog::where('blog_uid', $id)->first();
 
         $blogs = Blog::where('service_id', $blog->service_id)->latest()->limit(10)->get()->reverse();
 

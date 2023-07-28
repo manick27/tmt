@@ -67,9 +67,9 @@ Route::get('/addBlog', [BlogController::class, 'create'])->middleware(['auth', '
 
 Route::post('/addBlog', [BlogController::class, 'store'])->middleware(['auth', 'verified', 'is_admin'])->name('add.blog');
 
-Route::get('/update/blog/{id}', [BlogController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
+Route::get('/blog/{id}/update', [BlogController::class, 'edit'])->middleware(['auth', 'verified', 'is_admin']);
 
-Route::post('/update/blog/{id}', [BlogController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.blog');
+Route::post('/blog/{id}/update', [BlogController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('blog.update');
 
 Route::get('/blogs/service/{id}', [BlogController::class, 'blogsForService']);
 

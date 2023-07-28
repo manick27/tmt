@@ -50,7 +50,7 @@
                     </div>
 
                     <h2 class="title">
-                      <a href="/blog/{{ $blog->id }}/details">{{ $blog->title }}</a>
+                      <a href="/blog/{{ $blog->blog_uid }}/details">{{ $blog->title }}</a>
                     </h2>
                     <?php
 
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="read-more mt-auto align-self-end">
-                      <a href="/blog/{{ $blog->id }}/details">{{ __('En savoir plus') }}</a>
+                      <a href="/blog/{{ $blog->blog_uid }}/details">{{ __('En savoir plus') }}</a>
                     </div>
 
                   </article>

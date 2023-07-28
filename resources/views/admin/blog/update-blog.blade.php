@@ -189,7 +189,7 @@
                 @if(session('error'))
                     <div class="alert alert-danger"><b>Danger ! </b> {{ session('error') }}.</div>
                 @endif
-                <form enctype="multipart/form-data" action="{{ route('update.blog', ['id' => $blog->id]) }}" method="POST">
+                <form enctype="multipart/form-data" action="{{ route('blog.update', ['id' => $blog->blog_uid]) }}" method="POST">
                     @csrf
 
                     <p class="text-uppercase text-sm">Informations sur le blog</p>
