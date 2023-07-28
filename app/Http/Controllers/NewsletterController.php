@@ -31,7 +31,7 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'email' => [
                 'required',
                 'string',
@@ -41,13 +41,19 @@ class NewsletterController extends Controller
             ],
         ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
+
         $newsletter = Newsletter::create([
             'email' => $request['email'],
         ]);
 
         $newsletter->save();
 
-        return view('home');
+        $message = "Souscription réussie";
+
+        return redirect()->back()->with('message', $message);
     }
 
     /**
