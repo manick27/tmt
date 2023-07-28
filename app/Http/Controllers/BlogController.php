@@ -16,7 +16,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::all()->reverse();
         $services = Service::all();
 
         return view('admin.blog.list-blogs', compact('blogs', 'services'));
@@ -33,7 +33,8 @@ class BlogController extends Controller
             return view('admin.blog.create-blog', compact('services'));
         }
         else {
-            return view('admin.service.create-service');
+            $error = "Vous devez créer au-moins un service";
+            return view('admin.service.create-service')->with($error, 'error');
         }
 
     }
