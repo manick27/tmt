@@ -9,13 +9,15 @@
 
     <?php
     use App\Models\User;
+    use App\Models\Service;
+    $service = Service::findOrFail($blog->id);
     ?>
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Blog Details</h2>
+          <h2>Blog Details - {{ $service->title }}</h2>
           <ol>
             <li><a href="home">{{ __('Accueil') }}</a></li>
             <li><a href="blog">Blog</a></li>

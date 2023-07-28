@@ -169,7 +169,7 @@ class BlogController extends Controller
     public function delete($id){
 
         $blog = Blog::findOrFail($id);
-        
+
         $blog->delete();
 
         $message = "Vous avez supprimé un blog avec succes";
@@ -190,7 +190,7 @@ class BlogController extends Controller
 
         $blog = Blog::findOrFail($id);
 
-        $blogs = Blog::where('service_id', $blog->id)->get()->reverse();
+        $blogs = Blog::where('service_id', $blog->service_id)->latest()->limit(10)->get()->reverse();
 
         $comments = Comment::where('blog_id', $blog->id)->get();
 
