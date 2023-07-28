@@ -190,6 +190,13 @@
                 @endif
               </div>
             </div>
+            @if(session('message'))
+                <div class="alert alert-success"><b>Well done ! </b> {{ session('message') }}.</div>
+            @endif
+
+            @if(session('error'))
+                <div class="alert alert-danger"><b>Danger ! </b> {{ session('error') }}.</div>
+            @endif
             <form action="{{ route('update.my.profile') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">

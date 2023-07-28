@@ -10,6 +10,7 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -64,7 +65,7 @@ class UserController extends Controller
     public function update(Request $request)
     {
         // dd($request);
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => [
@@ -76,6 +77,10 @@ class UserController extends Controller
             'phone' => ['required', 'string', 'max:255'],
             'country' => ['required', 'string', 'max:255'],
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
 
         $user = User::findOrFail(Auth::user()->id);
 
@@ -112,13 +117,9 @@ class UserController extends Controller
 
         $user = User::findOrFail(Auth::user()->id);
 
-        $blogs = Blog::where('user_id', Auth::user()->id)->get();
+        $message = "Profil modifié avec succes";
 
-        $services = Service::where('user_id', Auth::user()->id)->get();
-
-        $edit = false;
-
-        return view('admin.profile', compact('user', 'blogs', 'services', 'edit'));
+        return redirect()->back()->with('message', $message);
     }
 
     /**
@@ -194,8 +195,16 @@ class UserController extends Controller
 
         $services = Service::where('user_id', Auth::user()->id)->get();
 
+        $comments = new Collection();
+        foreach($blogs as $blog){
+            $comment = Comment::where('blog_id', $blog->id)->get();
+            $comments->push($comment);
+        }
+
+        $nberComment = $comments->count();
+
         $edit = true;
 
-        return view('admin.profile', compact('user', 'blogs', 'services', 'edit'));
+        return view('admin.profile', compact('user', 'blogs', 'services', 'edit', 'nberComment'));
     }
 }
