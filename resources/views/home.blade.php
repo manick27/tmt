@@ -487,7 +487,7 @@
                   <a href="/blogs/service/{{ $service->id }}" class="stretched-link">
                     <h3>{{ $service->title }}</h3>
                   </a>
-                  <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis.</p>
+                  <p>{{ $service->description }}</p>
                 </div>
               </div>
             </div><!-- End Service Item -->
