@@ -49,6 +49,8 @@ class NewsletterController extends Controller
             'email' => $request['email'],
         ]);
 
+        $newsletter->newsletter_uid = uniqid();
+
         $newsletter->save();
 
         $message = "Souscription réussie";

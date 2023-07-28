@@ -49,6 +49,8 @@ class CommentController extends Controller
 
             $comment->blog_id = $id;
 
+            $comment->comment_uid = uniqid();
+
             $comment->save();
 
             $message = "comment publié avec succes";
