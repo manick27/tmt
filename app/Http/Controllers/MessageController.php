@@ -62,7 +62,7 @@ class MessageController extends Controller
             $message->message = $request['message'];
         }
 
-        $message->create();
+        $message->save();
 
         $details = [
             'title' => $request['subject'],
