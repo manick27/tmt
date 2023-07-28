@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class BlogController extends Controller
 {
@@ -42,10 +43,15 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|min:5|max:100',
+            "description" => 'required|string|min:10|max:1000',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
 
         $blog = new blog();
 
@@ -75,11 +81,11 @@ class BlogController extends Controller
         // dd($blog);
         $blog->save();
 
-        $blogs = Blog::all();
+        $message = "Blog publié avec succes";
 
-        $services = Service::all();
+        return redirect()->back()->with('message', $message);
 
-        return view('admin.blog.list-blogs', compact('blogs', 'services'));
+        // return view('admin.blog.list-blogs', compact('blogs', 'services'));
     }
 
     /**
@@ -107,10 +113,15 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|min:5|max:100',
+            "description" => 'required|string|min:10|max:1000',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
 
         $blog = Blog::findOrFail($id);
 
@@ -139,10 +150,11 @@ class BlogController extends Controller
 
         $blog->update();
 
-        $blogs = Blog::all();
-        $services = Service::all();
+        $message = "Blog modifié avec succes";
 
-        return view('admin.blog.list-blogs', compact('blogs', 'services'));
+        return redirect()->back()->with('message', $message);
+
+        // return view('admin.blog.list-blogs', compact('blogs', 'services'));
     }
 
     /**

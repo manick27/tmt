@@ -66,7 +66,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        $message = "Service ajoute avec succes";
+        $message = "Service ajouté avec succes";
 
         return redirect()->back()->with('message', $message);
 
@@ -97,10 +97,16 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
+
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|min:5|max:100',
+            "description" => 'required|string|min:10|max:1000',
+            'image' => 'mimes:jpeg,jpg,png|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors());
+        }
 
         $service = Service::findOrFail($id);
 
@@ -125,9 +131,11 @@ class ServiceController extends Controller
 
         $service->update();
 
-        $services = Service::all();
+        $message = "Service modifié avec succes";
 
-        return view('admin.service.list-services', compact('services'));
+        return redirect()->back()->with('message', $message);
+
+        // return view('admin.service.list-services', compact('services'));
     }
 
     /**

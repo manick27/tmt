@@ -56,12 +56,12 @@
                 </ul>
               </div><!-- End meta top -->
 
-              {{-- <div class="content">
+              <div class="content">
                 <p>{{$blog->description}}</p>
 
               </div><!-- End post content -->
 
-              <div class="meta-bottom">
+              {{-- <div class="meta-bottom">
                 <i class="bi bi-folder"></i>
                 <ul class="cats">
                   <li><a href="#">Business</a></li>
