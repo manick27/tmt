@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     $services = Service::all();
-    $blogs = Blog::limit(3)->get()->reverse();
+    $blogs = Blog::latest()->limit(3)->get()->reverse();
     return view('home', compact('services', 'blogs'));
  });
 
@@ -57,6 +57,8 @@ Route::get('/update/service/{id}', [ServiceController::class, 'edit'])->middlewa
 
 Route::post('/update/service/{id}', [ServiceController::class, 'update'])->middleware(['auth', 'verified', 'is_admin'])->name('update.service');
 
+Route::get('/delete/service/{id}', [ServiceController::class, 'delete'])->middleware(['auth', 'verified', 'is_admin'])->name('delete.service');
+
 //Les blogs
 
 Route::get('/blogs', [BlogController::class, 'index'])->middleware(['auth', 'verified', 'is_admin'])->name('blogs');
@@ -72,6 +74,8 @@ Route::post('/update/blog/{id}', [BlogController::class, 'update'])->middleware(
 Route::get('/blogs/service/{id}', [BlogController::class, 'blogsForService']);
 
 Route::get('/blog-details/{id}', [BlogController::class, 'blogDetails']);
+
+Route::get('/delete/blog/{id}', [BlogController::class, 'delete'])->middleware(['auth', 'verified', 'is_admin'])->name('delete.blog');
 
 // Les commentaires
 

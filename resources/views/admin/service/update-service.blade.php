@@ -154,7 +154,7 @@
                     <li class="nav-item">
                         <a href="/addService" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 active py-1 d-flex align-items-center justify-content-center">
                             <i class="ni ni-email-83"></i>
-                            <span class="ms-2">Ajouter service</span>
+                            <span class="ms-2">Modifier service</span>
                         </a>
                     </li>
                     <li class="nav-item">

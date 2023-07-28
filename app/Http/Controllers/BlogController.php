@@ -168,7 +168,8 @@ class BlogController extends Controller
 
     public function delete($id){
 
-        $blog = Blog::find($id);
+        $blog = Blog::findOrFail($id);
+        
         $blog->delete();
 
         $message = "Vous avez supprimé un blog avec succes";

@@ -179,6 +179,9 @@
               </div>
               <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
+                    @if(session('message'))
+                        <div class="alert alert-success"><b>Well done ! </b> {{ session('message') }}.</div>
+                    @endif
                   <table class="table align-items-center justify-content-center mb-0">
                     <thead>
                       <tr>
@@ -212,8 +215,32 @@
                             </td> --}}
                             <td class="align-middle text-center">
                                 <div class="ms-auto text-end">
-                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="far fa-trash-alt me-2"></i>Supprimer</a>
-                                  <a class="btn btn-link text-dark px-3 mb-0" href="update/service/{{ $service->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i>Modifier</a>
+                                  <a class="btn btn-link text-dark px-3 mb-0" href="/update/service/{{ $service->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
+                                  <!-- Button trigger modal -->
+                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="far fa-trash-alt me-2"></i></a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                <h5 class="modal-title font-weight-normal" id="exampleModalLabel">Supprimer service</h5>
+                                                <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Voulez-vous vraiment supprimer ce service?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Annuler</button>
+                                                    <a href="/delete/service/{{ $service->id }}" class="btn bg-gradient-primary">Confirmer</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </td>
                         </tr>
