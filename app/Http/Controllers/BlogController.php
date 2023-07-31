@@ -65,7 +65,8 @@ class BlogController extends Controller
         }
 
         if($request['service_id'] != null ){
-            $blog->service_id = $request['service_id'];
+            $service = Service::findOrFail((int)$request['service_id']);
+            $blog->service()->associate($service);
         }
 
         if($request['image'] != null ){
@@ -77,9 +78,8 @@ class BlogController extends Controller
             $request->move( $destinationPath, $input['image'] );
         }
 
-        $blog->user_id = Auth::user()->id;
-
-        // dd($blog);
+        $user = Auth::user();
+        $blog->user()->associate($user);
         $blog->save();
 
         $message = "Blog publié avec succes";

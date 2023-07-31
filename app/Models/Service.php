@@ -33,4 +33,9 @@ class Service extends Model
 
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

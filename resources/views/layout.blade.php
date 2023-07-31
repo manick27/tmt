@@ -44,6 +44,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  @livewireStyles
 </head>
 <style>
     .header .my-btn{
@@ -306,6 +307,7 @@
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
 
+  @livewireScripts
 </body>
 
 </html>
