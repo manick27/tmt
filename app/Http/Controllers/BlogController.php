@@ -80,6 +80,7 @@ class BlogController extends Controller
 
         $user = Auth::user();
         $blog->user()->associate($user);
+        $blog->blog_uid = uniqid();
         $blog->save();
 
         $message = "Blog publié avec succes";
