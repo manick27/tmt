@@ -484,7 +484,7 @@
                   <div class="icon">
                     <i class="bi bi-activity"></i>
                   </div>
-                  <a href="/blogs/service/{{ $service->id }}" class="stretched-link">
+                  <a href="/service/{{ $service->service_uid }}/blogs" class="stretched-link">
                     <h3>{{ $service->title }}</h3>
                   </a>
                   <p>{{ $service->description }}</p>
@@ -1001,6 +1001,9 @@
 
         <div class="row">
 
+            @if (!$blogs->count())
+            <p style="font-size: 3rem; text-align: center">{{ __('Pas de publications pour le moment.') }}</p>
+            @endif
             @foreach ($blogs as $blog)
 
             <?php
@@ -1018,7 +1021,7 @@
               </div>
               <h3 class="post-title">{{ $blog->title }}</h3>
               {{-- <p>Illum voluptas ab enim placeat. Adipisci enim velit nulla. Vel omnis laudantium. Asperiores eum ipsa est officiis. Modi cupiditate exercitationem qui magni est...</p> --}}
-              <a href="/blog-details/{{ $blog->id }}" class="readmore stretched-link"><span>{{ __('En savoir plus') }}</span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog/{{ $blog->blog_uid }}/details" class="readmore stretched-link"><span>{{ __('En savoir plus') }}</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -1041,9 +1044,9 @@
 
       </div>
 
-      <div class="map">
+      {{-- <div class="map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div><!-- End Google Maps -->
+      </div><!-- End Google Maps --> --}}
 
       <div class="container">
 
@@ -1058,8 +1061,10 @@
               <div class="info-item d-flex">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h4>Location:</h4>
-                  <p>Cameroun, Douala Carrefour AGIP</p>
+                    <a href="https://www.google.com/maps/place/Carrefour+Agip/@4.0480136,9.7196921,15z/data=!4m6!3m5!1s0x10611308bb604285:0xddbbbc7f381110c!8m2!3d4.0480136!4d9.7196921!16s%2Fg%2F11nxpkpbx_?entry=ttu">
+                        <h4>Location:</h4>
+                        <p>Cameroun, Douala Carrefour AGIP</p>
+                    </a>
                 </div>
               </div><!-- End Info Item -->
 

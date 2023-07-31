@@ -9,13 +9,15 @@
 
     <?php
     use App\Models\User;
+    use App\Models\Service;
+    $service = Service::findOrFail($blog->id);
     ?>
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs">
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Blog Details</h2>
+          <h2>Blog Details - {{ $service->title }}</h2>
           <ol>
             <li><a href="home">{{ __('Accueil') }}</a></li>
             <li><a href="blog">Blog</a></li>
@@ -104,7 +106,7 @@
                 <h3 class="sidebar-title">{{ __('Tous les blogs pour le même service') }}</h3>
                 <ul class="mt-3">
                     @foreach ($blogs as $blog)
-                    <li><a href="/blog-details/{{ $blog->id }}">{{ $blog->title }} <span></span></a></li>
+                    <li><a href="/blog/{{ $blog->blog_uid }}/details">{{ $blog->title }} <span></span></a></li>
                     @endforeach
                 </ul>
               </div><!-- End sidebar categories-->
@@ -157,7 +159,7 @@
                       </div>
 
                       <h2 class="title">
-                        <a href="/blog-details/{{ $blog->id }}">{{ $blog->title }}</a>
+                        <a href="/blog/{{ $blog->blog_uid }}/details">{{ $blog->title }}</a>
                       </h2>
 
                       <div class="meta-top">
@@ -175,7 +177,7 @@
                       </div>
 
                       <div class="read-more mt-auto align-self-end">
-                        <a href="/blog-details/{{ $blog->id }}">{{ __('En savoir plus') }}</a>
+                        <a href="/blog/{{ $blog->blog_uid }}/details">{{ __('En savoir plus') }}</a>
                       </div>
 
                     </article>

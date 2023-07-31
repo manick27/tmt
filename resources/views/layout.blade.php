@@ -119,7 +119,7 @@
           <li class="dropdown"><a href="/#recent-blog-posts"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 @foreach ($services as $service)
-                <li><a href="/blogs/service/{{ $service->id }}">{{ $service->title }}</a></li>
+                <li><a href="/service/{{ $service->service_uid }}/blogs">{{ $service->title }}</a></li>
                 @endforeach
             </ul>
           </li>

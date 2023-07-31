@@ -42,6 +42,7 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
             'phone' => $input['phone'],
             'country' => $input['country'],
+            'user_uid' => uniqid(),
         ]);
     }
 }

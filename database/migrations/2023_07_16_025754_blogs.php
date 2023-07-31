@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->bigInteger('service_id')->nullable()->unsigned();
+            $table->string('blog_uid')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
             $table->string('image')->nullable();

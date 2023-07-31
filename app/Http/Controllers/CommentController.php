@@ -49,9 +49,11 @@ class CommentController extends Controller
 
             $comment->blog_id = $id;
 
+            $comment->comment_uid = uniqid();
+
             $comment->save();
 
-            $message = "comment ajoute avec succes";
+            $message = "comment publié avec succes";
 
             return redirect()->back()->with('message', $message);
         }else{

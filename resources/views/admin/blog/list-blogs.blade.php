@@ -158,7 +158,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="addBlog" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
+                        <a href="add/blog" data-target="#" data-toggle="pill" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
                             <i class="ni ni-email-83"></i>
                             <span class="ms-2">Créer Blog</span>
                         </a>
@@ -185,6 +185,7 @@
                   <table class="table align-items-center justify-content-center mb-0">
                     <thead>
                       <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Logo & Titre</th>
                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Service</th>
                         {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Dernière modification</th> --}}
@@ -197,6 +198,7 @@
 
 
                         <tr>
+                            <td>{{ $blog->id }}</td>
                             <td>
                                 <div class="d-flex px-2">
                                     <div>
@@ -219,12 +221,12 @@
                             </td> --}}
                             <td class="align-middle text-center">
                                 <div class="ms-auto text-end">
-                                  <a class="btn btn-link text-dark px-3 mb-0" href="/update/blog/{{ $blog->id }}"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
+                                  <a class="btn btn-link text-dark px-3 mb-0" href="/blog/{{ $blog->blog_uid }}/update"><i class="fas fa-pencil-alt text-dark me-2" aria-hidden="true"></i></a>
                                   <!-- Button trigger modal -->
-                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $blog->id }}"><i class="far fa-trash-alt me-2"></i></a>
+                                  <a class="btn btn-link text-danger text-gradient px-3 mb-0" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $blog->blog_uid }}"><i class="far fa-trash-alt me-2"></i></a>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="deleteModal{{ $blog->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="deleteModal{{ $blog->blog_uid }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -240,7 +242,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Annuler</button>
-                                                    <a href="/delete/blog/{{ $blog->id }}" class="btn bg-gradient-primary">Confirmer</a>
+                                                    <a href="/blog/{{ $blog->blog_uid }}/delete" class="btn bg-gradient-primary">Confirmer</a>
                                                 </div>
                                             </div>
                                         </div>

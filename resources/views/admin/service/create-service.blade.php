@@ -158,7 +158,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a data-toggle="pill" href="services" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
+                        <a data-toggle="pill" href="/services" class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center">
                             <i class="ni ni-app"></i>
                             <span class="ms-2">Liste services</span>
                         </a>

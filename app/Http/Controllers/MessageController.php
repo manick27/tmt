@@ -62,6 +62,8 @@ class MessageController extends Controller
             $message->message = $request['message'];
         }
 
+        $message->message_uid = uniqid();
+
         $message->save();
 
         $details = [

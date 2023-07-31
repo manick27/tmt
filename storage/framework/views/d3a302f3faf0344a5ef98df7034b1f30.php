@@ -111,7 +111,7 @@
           <li class="dropdown"><a href="/#recent-blog-posts"><span>Blog</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
                 <?php $__currentLoopData = $services; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <li><a href="/blogs/service/<?php echo e($service->id); ?>"><?php echo e($service->title); ?></a></li>
+                <li><a href="/service/<?php echo e($service->service_uid); ?>/blogs"><?php echo e($service->title); ?></a></li>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </li>
