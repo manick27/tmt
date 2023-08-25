@@ -69,7 +69,7 @@ class MessageController extends Controller
         $details = [
             'title' => $request['subject'],
             'body' => $request['message'],
-            'destination' => 'nguewouom@gmail.com',
+            'destination' => 'aymartchimwa@gmail.com',
             'copy' => 'manicknguewouo@gmail.com'
         ];
 

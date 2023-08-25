@@ -21,7 +21,7 @@
     ?>
     <div class="container d-flex flex-column align-items-center position-relative" data-aos="zoom-out">
       <h2>Welcome to <span>TMT</span></h2>
-      <p>Technical Multi Service Travel is a ...</p>
+      <p>Technical Multi Service Travel est une organisation qui fournit une assistance et des services liés aux procédures d'immigration et de visa</p>
       <div class="d-flex">
         <a href="/#about" class="btn-get-started scrollto">Get Started</a>
         {{-- <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a> --}}
@@ -37,11 +37,24 @@
 
         <div class="row gy-4">
 
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+            <div class="service-item position-relative">
+              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
+              <h4><a href="" class="stretched-link">Responsabilité sociale</a></h4>
+              <p>Nous sommes une entreprise qui s'engage à être un acteur responsable dans la société en
+contribuant activement à l'amélioration des communautés où nous opérons, en promouvant des
+pratiques durables et respectueuses de l'environnement, et en favorisant des relations
+commerciales éthiques.</p>
+            </div>
+          </div><!-- End Service Item -->
+
           <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
               <h4><a href="" class="stretched-link">Fiabilité</a></h4>
-              <p>Une entreprise fiable est celle qui est capable de respecter ses engagements envers ses clients, ses partenaires commerciaux et ses employés.</p>
+              <p>Nous avons bâti notre réputation en tant qu'entreprise de confiance qui offre des solutions
+efficaces et sur mesure pour répondre aux besoins de nos clients, en mettant l'accent sur la
+qualité de nos services et la satisfaction de nos clients.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -49,7 +62,9 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
               <h4><a href="" class="stretched-link">Flexibilité</a></h4>
-              <p>Elle est capable de changer de direction si nécessaire et de répondre aux demandes des clients tout en maintenant une qualité élevée.</p>
+              <p>Notre entreprise est reconnue pour son engagement à fournir des solutions flexibles et
+adaptées aux besoins individuels de chaque client, en offrant une gamme complète de services
+personnalisés pour répondre aux besoins spécifiques de nos clients.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -57,15 +72,10 @@
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
               <h4><a href="" class="stretched-link">Innovation</a></h4>
-              <p> Elle investit dans la recherche et le développement pour améliorer ses produits ou services existants et pour en créer de nouveaux.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Responsabilité sociale</a></h4>
-              <p>Une entreprise responsable socialement est celle qui prend en compte les intérêts de la société dans ses actions et ses décisions</p>
+              <p>Nous sommes une entreprise dynamique qui se concentre constamment sur la recherche de
+nouvelles solutions créatives pour répondre aux besoins émergents de nos clients, en utilisant
+des technologies de pointe et des approches innovantes pour offrir des services de qualité
+supérieure.</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -80,7 +90,7 @@
 
         <div class="section-header">
           <h2>About Us</h2>
-          <p>Une agence d'immigration est une entreprise spécialisée dans l'assistance aux personnes qui cherchent à immigrer dans un pays étranger.</p>
+          <p>Bienvenue chez TMT, votre partenaire pour tous vos besoins en matière de voyage, d'études et d'affaires. Nous sommes une entreprise spécialisée dans l'assistance visa, la réservation et la vente de billets d'avion, l'inscription aux bourses d'études à l'étranger, l'agriculture, l'import-export et les formations.</p>
         </div>
 
         <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
@@ -92,39 +102,45 @@
           </div>
 
           <div class="col-lg-7">
-            <h3 class="pt-0 pt-lg-5">Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
+            <h3 class="pt-0 pt-lg-5">Nous somme une organisation qui fournit une assistance et des services liés aux procédures d'immigration et de visa</h3>
 
-            <!-- Tabs -->
-            <ul class="nav nav-pills mb-3">
-              <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a></li>
-              <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a></li>
-              <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a></li>
-            </ul><!-- End Tabs -->
+             <ul class="nav nav-pills mb-3">
+              <li><a class="nav-link active" data-bs-toggle="pill" href="#tab1">Read about our agency</a></li>
+<!--               <li><a class="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a></li>
+              <li><a class="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a></li> -->
+            </ul>
 
             <!-- Tab Content -->
             <div class="tab-content">
 
               <div class="tab-pane fade show active" id="tab1">
 
-                <p class="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
+                <!-- <p class="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p> -->
 
-                <div class="d-flex align-items-center mt-4">
+<!--                 <div class="d-flex align-items-center mt-4">
                   <i class="bi bi-check2"></i>
                   <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
-                </div>
-                <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
+                </div> -->
+                <p>Que vous soyez un voyageur passionné à la recherche de nouvelles aventures, un étudiant ambitieux
+cherchant à poursuivre ses études à l'étranger, ou un entrepreneur désireux de développer votre
+activité sur le marché mondial, nous sommes là pour vous aider à réaliser vos objectifs.
+</p>
 
-                <div class="d-flex align-items-center mt-4">
+<!--                 <div class="d-flex align-items-center mt-4">
                   <i class="bi bi-check2"></i>
                   <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                </div>
-                <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
+                </div> -->
+                <p>Notre équipe de professionnels dévoués travaillent avec vous pour comprendre vos besoins et vous
+fournir des solutions personnalisées pour répondre à vos attentes. Nous nous engageons à fournir un
+service de qualité supérieure et à maintenir une relation de confiance avec nos clients.</p>
 
-                <div class="d-flex align-items-center mt-4">
+<!--                 <div class="d-flex align-items-center mt-4">
                   <i class="bi bi-check2"></i>
                   <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
-                </div>
-                <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam officia aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque magnam odit enim quaerat. Vero error error voluptatem eum.</p>
+                </div> -->
+                <p>Explorez notre site pour découvrir notre gamme complète de services et contactez-nous pour
+discuter de vos besoins. Nous sommes impatients de travailler avec vous à la réalisation de vos
+projets.</p>
 
               </div><!-- End Tab 1 Content -->
 
@@ -259,55 +275,88 @@
     <section id="features" class="features">
       <div class="container" data-aos="fade-up">
 
+      <div class="section-header">
+          <h2>{{ __('Nos services') }}</h2>
+          <p>Découvrez une gamme complète de services et contactez-nous pour discuter de vos besoins. Nous sommes impatients de travailler avec vous à la réalisation de vos projets</p>
+        </div>
+
+
         <ul class="nav nav-tabs row gy-4 d-flex">
 
+        @foreach ($services as $service)
           <li class="nav-item col-6 col-md-4 col-lg-2">
+            <a class="nav-link @if($loop->index == 0) active show @endif" data-bs-toggle="tab" data-bs-target="#tab-{{$loop->index + 1}}">
+              <i class="bi bi-box-seam color-indigo"></i>
+              <h4>{{ $service->title }}</h4>
+            </a>
+          </li>
+        @endforeach
+
+<!--           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
               <i class="bi bi-binoculars color-cyan"></i>
               <h4>Modinest</h4>
             </a>
-          </li><!-- End Tab 1 Nav -->
+          </li>
 
           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
               <i class="bi bi-box-seam color-indigo"></i>
               <h4>Undaesenti</h4>
             </a>
-          </li><!-- End Tab 2 Nav -->
+          </li>
 
           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
               <i class="bi bi-brightness-high color-teal"></i>
               <h4>Pariatur</h4>
             </a>
-          </li><!-- End Tab 3 Nav -->
+          </li>
 
           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
               <i class="bi bi-command color-red"></i>
               <h4>Nostrum</h4>
             </a>
-          </li><!-- End Tab 4 Nav -->
+          </li>
 
           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-5">
               <i class="bi bi-easel color-blue"></i>
               <h4>Adipiscing</h4>
             </a>
-          </li><!-- End Tab 5 Nav -->
+          </li>
 
           <li class="nav-item col-6 col-md-4 col-lg-2">
             <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-6">
               <i class="bi bi-map color-orange"></i>
               <h4>Reprehit</h4>
             </a>
-          </li><!-- End Tab 6 Nav -->
+          </li> -->
 
         </ul>
 
         <div class="tab-content">
 
-          <div class="tab-pane active show" id="tab-1">
+        @foreach ($services as $service)
+
+          <div class="tab-pane @if($loop->index == 0) active show @endif" id="tab-{{$loop->index + 1}}">
+            <div class="row gy-4">
+              <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+                <h3>{{ $service->title }}</h3>
+                <p class="fst-italic">
+                {{$service->description}}
+                </p>
+              </div>
+              <div class="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="images/{{ $service->image }}" alt="" class="img-fluid">
+              </div>
+            </div>
+          </div>
+
+        @endforeach
+
+<!--           <div class="tab-pane active show" id="tab-1">
             <div class="row gy-4">
               <div class="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100">
                 <h3>Modinest</h3>
@@ -330,7 +379,7 @@
                 <img src="assets/img/features-1.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 1 -->
+          </div>
 
           <div class="tab-pane" id="tab-2">
             <div class="row gy-4">
@@ -356,7 +405,7 @@
                 <img src="assets/img/features-2.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 2 -->
+          </div>
 
           <div class="tab-pane" id="tab-3">
             <div class="row gy-4">
@@ -381,7 +430,7 @@
                 <img src="assets/img/features-3.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 3 -->
+          </div>
 
           <div class="tab-pane" id="tab-4">
             <div class="row gy-4">
@@ -406,7 +455,7 @@
                 <img src="assets/img/features-4.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 4 -->
+          </div>
 
           <div class="tab-pane" id="tab-5">
             <div class="row gy-4">
@@ -431,7 +480,7 @@
                 <img src="assets/img/features-5.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 5 -->
+          </div>
 
           <div class="tab-pane" id="tab-6">
             <div class="row gy-4">
@@ -456,7 +505,7 @@
                 <img src="assets/img/features-6.svg" alt="" class="img-fluid">
               </div>
             </div>
-          </div><!-- End Tab Content 6 -->
+          </div> -->
 
         </div>
 
@@ -466,11 +515,6 @@
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
       <div class="container" data-aos="fade-up">
-
-        <div class="section-header">
-          <h2>{{ __('Nos services') }}</h2>
-          <p>Ea vitae aspernatur deserunt voluptatem impedit deserunt magnam occaecati dssumenda quas ut ad dolores adipisci aliquam.</p>
-        </div>
 
         <div class="row gy-5">
 
@@ -487,7 +531,7 @@
                   <a href="/service/{{ $service->service_uid }}/blogs" class="stretched-link">
                     <h3>{{ $service->title }}</h3>
                   </a>
-                  <p>{{ $service->description }}</p>
+                  <p>{{ Str::limit($service->description, 150) }}</p>
                 </div>
               </div>
             </div><!-- End Service Item -->
@@ -925,7 +969,7 @@
 
         <div class="section-header">
           <h2>Our Team</h2>
-          <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
+          <p>Chacun de nos membres possède une solide connaissance des lois et des réglementations en matière d'immigration, ainsi qu'une compréhension approfondie des procédures et des exigences des différents pays. </p>
         </div>
 
         <div class="row gy-5">
